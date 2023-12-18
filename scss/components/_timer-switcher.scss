@@ -1,3 +1,27 @@
+@use '../abstracts/' as *;
+
 .timer-switcher {
-    
+    padding: rem(7);
+    font-size: rem(12);
+    display: flex;
+    border-radius: 9999rem;
+    background-color: var(--timer-switcher-background-color);
+    color: var(--timer-switcher-foreground-color);
+    z-index: 2;
+
+    &__radio {
+        display: none;
+    }
+
+    &__radio:checked+&__item {
+        background-color: var(--timer-switcher-item-checked-background-color);
+        color: var(--timer-switcher-item-checked-foreground-color);
+    }
+
+    &__item {
+        cursor: pointer;;
+        padding-block: rem(16);
+        padding-inline: rem(20);
+        border-radius: 9999rem;
+    }
 }
