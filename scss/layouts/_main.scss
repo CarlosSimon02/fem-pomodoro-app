@@ -1,0 +1,30 @@
+@use '../abstracts/' as *;
+
+.content {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    
+    &__wrapper {
+        margin-top: rem(32);
+        margin-bottom: rem(48);
+        margin-inline: auto;
+        max-width: rem(327);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__logo {
+        height: rem(24);
+        margin-bottom: rem(45);
+    }
+
+    &__timer-switcher {
+        margin-bottom: rem(48);
+    }
+
+    &__timer {
+        margin-bottom: rem(79);
+    }
+}
