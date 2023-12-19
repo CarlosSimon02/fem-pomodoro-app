@@ -15,14 +15,30 @@
     &__inner {
         width: 90%;
         height: 90%;
-        background-color: var(--timer-inner-background-color);
+        background-color: var(--primary-color-2);
         border-radius: inherit;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         position: relative;
-        gap: rem(10);
+        gap: rem(15);
+        
+        &>* {
+            z-index: 1;
+        }
+    }
+
+    &__button {
+        opacity: 1;
+
+        &:hover {
+            color: var(--accent-color-1);
+
+            & path {
+                fill: var(--accent-color-1);
+            }
+        }
     }
 
     &__progress-bar {
@@ -33,30 +49,15 @@
 
         & circle {
             fill: none;
-            stroke: var(--progress-bar-stroke-color);
+            stroke: var(--accent-color-1);
             stroke-width: 4%;
             stroke-dasharray: 753.98;
-            stroke-dashoffset: 700;
-        }
-    }
-
-    &__restart  {
-        & path {
-            fill: var(--timer-foreground-color);
+            stroke-dashoffset: 100;
         }
     }
 
     &__digits {
         font-size: rem(80);
         line-height: 1;
-    }
-
-    &__control {
-        color: inherit;
-        font-size: rem(14);
-        text-transform: uppercase;
-        letter-spacing: rem(13.13);
-        margin-right: rem(-13.13);
-        overflow: clip;
     }
 }

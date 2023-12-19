@@ -2,10 +2,33 @@
 
 .button {
     cursor: pointer;
+    color: inherit;
 
     &--link {
         padding: 0;
         border: none;
         background-color: transparent;
+        opacity: .5;
+
+        &:hover {
+            opacity: 1;
+        }
+
+        & svg {
+            width: rem(28);
+            height: rem(28);
+
+            & path {
+                fill: var(--secondary-color-1);
+            }
+        }
+
+        &--text {
+            color: inherit;
+            font-size: rem(14);
+            text-transform: uppercase;
+            letter-spacing: rem(13.13);
+            margin-right: rem(-13.13);
+        }
     }
 }

@@ -1,27 +1,26 @@
-@use '../abstracts/' as *;
+@use "../abstracts/" as *;
 
 .timer-switcher {
-    padding: rem(7);
-    font-size: rem(12);
-    display: flex;
+  padding: rem(7);
+  font-size: rem(12);
+  display: flex;
+  border-radius: 9999rem;
+  background-color: var(--primary-color-2);
+  z-index: 2;
+
+  &__radio {
+    display: none;
+  }
+
+  &__item {
+    padding-block: rem(16);
+    padding-inline: rem(20);
     border-radius: 9999rem;
-    background-color: var(--timer-switcher-background-color);
-    color: var(--timer-switcher-foreground-color);
-    z-index: 2;
+  }
 
-    &__radio {
-        display: none;
-    }
-
-    &__radio:checked+&__item {
-        background-color: var(--timer-switcher-item-checked-background-color);
-        color: var(--timer-switcher-item-checked-foreground-color);
-    }
-
-    &__item {
-        cursor: pointer;;
-        padding-block: rem(16);
-        padding-inline: rem(20);
-        border-radius: 9999rem;
-    }
+  &__radio:checked + &__item {
+    opacity: 1;
+    background-color: var(--accent-color-1);
+    color: var(--primary-color-1);
+  }
 }

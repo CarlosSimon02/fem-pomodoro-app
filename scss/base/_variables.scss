@@ -1,34 +1,30 @@
-@use '../abstracts/' as *;
+@use "../abstracts/" as *;
 
 :root {
   --georgie-peach: hsl(0, 91%, 71%);
   --robins-egg: hsl(182, 91%, 71%);
   --lavender-tea: hsl(284, 89%, 74%);
-  --black-market: hsl(235, 35%, 18%);
-  --dark-knight: hsl(234, 39%, 14%);
-  --transparent-blue: hsl(227, 100%, 92%);
-  --quill-tip: hsl(235, 32%, 27%);
-  --deep-sea-base: hsl(234, 40%, 25%);
-  --lost-in-sadness: hsl(234, 45%, 13%);
+
+  --primary-color-1: hsl(235, 35%, 18%);
+  --primary-color-2: hsl(234, 39%, 14%);
+  --primary-color-3: hsl(235, 32%, 27%);
+  --secondary-color-1: hsl(227, 100%, 92%);
+  --accent-color-1: var(--georgie-peach);
+  --box-shadow-color-1: hsl(234, 40%, 25%);
+  --box-shadow-color-2: hsl(234, 45%, 13%);
+
+  --timer-background: linear-gradient(
+    to bottom right,
+    var(--primary-color-2) 20%,
+    var(--primary-color-3)
+  );
+
+  --timer-box-shadow: #{rem(-50)} #{rem(-50)} #{rem(100)} 0 var(--box-shadow-color-1),
+    #{rem(50)} #{rem(50)} #{rem(100)} 0 var(--box-shadow-color-2);
 
   --kumbh-sans: "Kumbh Sans", sans-serif;
   --roboto-slab: "Roboto Slab", serif;
   --space-mono: "Space Mono", monospace;
 
-  --body-background-color: var(--black-market);
   --body-font-family: var(--kumbh-sans);
-  --timer-switcher-background-color: var(--dark-knight);
-  --timer-switcher-foreground-color: var(--transparent-blue);
-  --timer-switcher-item-checked-foreground-color: var(--black-market);
-  --timer-switcher-item-checked-background-color: var(--georgie-peach);
-  --timer-inner-background-color: var(--dark-knight);
-  --timer-foreground-color: var(--transparent-blue);
-  --timer-background: linear-gradient(
-    to bottom right,
-    var(--dark-knight) 20%,
-    var(--quill-tip)
-  );
-  --timer-box-shadow: #{rem(-50)} #{rem(-50)} #{rem(100)} 0 var(--deep-sea-base),
-    #{rem(50)} #{rem(50)} #{rem(100)} 0 var(--lost-in-sadness);
-  --progress-bar-stroke-color: var(--georgie-peach);
 }

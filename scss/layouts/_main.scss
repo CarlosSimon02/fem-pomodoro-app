@@ -27,4 +27,9 @@
     &__timer {
         margin-bottom: rem(79);
     }
+
+    &__bottom {
+        display: flex;
+        gap: rem(30);
+    }
 }
