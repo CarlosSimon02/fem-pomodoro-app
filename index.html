@@ -20,6 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@700&family=Roboto+Slab:wght@700&family=Space+Mono:wght@700&display=swap"
       rel="stylesheet"
     />
+    <script defer src="js/main.js"></script>
   </head>
   <body>
     <main class="content">
@@ -44,7 +45,9 @@
             value="pomodoro"
             checked
           />
-          <label class="timer-switcher__item button button--link" for="pomodoro">pomodoro</label>
+          <label class="timer-switcher__item button button--link" for="pomodoro"
+            >pomodoro</label
+          >
           <input
             class="timer-switcher__radio"
             type="radio"
@@ -52,7 +55,10 @@
             name="timer-type"
             value="short-break"
           />
-          <label class="timer-switcher__item button button--link" for="short-break">
+          <label
+            class="timer-switcher__item button button--link"
+            for="short-break"
+          >
             short break
           </label>
           <input
@@ -62,7 +68,10 @@
             name="timer-type"
             value="long-break"
           />
-          <label class="timer-switcher__item button button--link" for="long-break">
+          <label
+            class="timer-switcher__item button button--link"
+            for="long-break"
+          >
             long break
           </label>
         </nav>
@@ -91,11 +100,15 @@
               </svg>
             </button>
             <div class="timer__digits">17:59</div>
-            <button class="timer__button button button--link button--link--text">Pause</button>
+            <button
+              class="timer__button button button--link button--link--text"
+            >
+              Pause
+            </button>
           </div>
         </div>
         <div class="content__bottom">
-          <button class="button button--link">
+          <button class="button button--link js-open-settings-btn">
             <svg
               fill="#D7E0FF"
               version="1.1"
@@ -160,5 +173,77 @@
         </div>
       </div>
     </main>
+    <dialog class="settings-modal js-settings-modal">
+      <header class="settings-modal__header">
+        <h1 class="settings-modal__header__text">Settings</h1>
+        <button class="settings-modal__header__close-btn button button--link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14">
+            <path
+              fill="#1E213F"
+              fill-rule="evenodd"
+              d="M11.95.636l1.414 1.414L8.414 7l4.95 4.95-1.414 1.414L7 8.414l-4.95 4.95L.636 11.95 5.586 7 .636 2.05 2.05.636 7 5.586l4.95-4.95z"
+              opacity=".5"
+            />
+          </svg>
+        </button>
+      </header>
+      <hr>
+      <form class="settings-modal__content">
+        <div>
+          <h2>Time (minutes)</h2>
+          <div>
+            <div>
+              <label for="pomodoro-time">pomodoro</label>
+              <input type="text" name="time" id="pomodoro-time">
+            </div>
+            <div>
+              <label for="short-break-time">short break</label>
+              <input type="text" name="time" id="short-break-time">
+            </div>
+            <div>
+              <label for="long-break-time">long break</label>
+              <input type="text" name="time" id="long-break-time">
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div>
+          <h2>Font</h2>
+          <div>
+            <div>
+              <input type="radio" name="current-font" id="kumbh-sans" checked>
+              <label for="kumbh-sans">Aa</label>
+            </div>
+            <div>
+              <input type="radio" name="current-font" id="roboto-slab">
+              <label for="roboto-slab">Aa</label>
+            </div>
+            <div>
+              <input type="radio" name="current-font" id="space-mono">
+              <label for="space-mono">Aa</label>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div>
+          <h2>Color</h2>
+          <div>
+            <div>
+              <input type="radio" name="current-accent" id="georgie-peach" checked>
+              <label for="georgie-peach"></label>
+            </div>
+            <div>
+              <input type="radio" name="current-accent" id="robins-egg">
+              <label for="robins-egg"></label>
+            </div>
+            <div>
+              <input type="radio" name="current-accent" id="lavender-tea">
+              <label for="lavender-tea"></label>
+            </div>
+          </div>
+        </div>
+        <button class="button">Apply</button>
+      </form>
+    </dialog>
   </body>
 </html>
