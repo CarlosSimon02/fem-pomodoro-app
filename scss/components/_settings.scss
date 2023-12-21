@@ -1,12 +1,18 @@
 @use '../abstracts' as *;
 
-.settings-modal {
+.settings {
     border: none;
     border-radius: rem(25);
     width: calc(100vw - #{rem(48)});
     height: calc(100vh - #{rem(48)});
     max-width: rem(540);
     max-height: rem(575);
+
+    &::backdrop {
+        background-color: var(--backdrop-color);
+    }
+    
+    
 }
 
 // dialog::backdrop {

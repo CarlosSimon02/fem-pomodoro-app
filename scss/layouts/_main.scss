@@ -1,35 +1,31 @@
-@use '../abstracts/' as *;
+@use "../abstracts/" as *;
 
-.content {
-    min-height: 100vh;
+.main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+
+  &__wrapper {
+    margin-top: small-to-medium(32, 80);
+    margin-bottom: small-to-medium(48, 103);
+    margin-inline: auto;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    
-    &__wrapper {
-        margin-top: rem(32);
-        margin-bottom: rem(48);
-        margin-inline: auto;
-        max-width: rem(327);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  }
 
-    &__logo {
-        height: rem(24);
-        margin-bottom: rem(45);
-    }
+  &__logo {
+    height: small-to-medium(24, 32);
+    margin-bottom: small-to-medium(45, 55);
+  }
 
-    &__timer-switcher {
-        margin-bottom: rem(48);
-    }
+  &__timer {
+    margin-top: small-to-medium(48,109);
+    margin-bottom: small-to-medium(79,144);
+  }
 
-    &__timer {
-        margin-bottom: rem(79);
-    }
-
-    &__bottom {
-        display: flex;
-        gap: rem(30);
-    }
+  &__bottom {
+    display: flex;
+    gap: small-to-medium(30, 45);
+  }
 }

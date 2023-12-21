@@ -7,5 +7,37 @@
     @return math.div($number, $default-one-rem-in-pixel) * 1rem;
   }
 
-  @error "'#{$number}' must have not any unit";
+  @error "'#{$number}' should not have unit";
+}
+
+@function fluid(
+  $min-size,
+  $max-size,
+  $min-breakpoint,
+  $max-breakpoint,
+  $unit: vw
+) {
+  @if unitless($min-size) and unitless($max-size) {
+    $min-breakpoint-val: map-get($breakpoints, $min-breakpoint);
+    $max-breakpoint-val: map-get($breakpoints, $max-breakpoint);
+
+    $slope: math.div(
+      $max-size - $min-size,
+      $max-breakpoint-val - $min-breakpoint-val
+    );
+    $slope-to-unit: $slope * 100;
+    $intercept-rem: rem($min-size - $slope * $min-breakpoint-val);
+
+    @return clamp(
+      #{rem($min-size)},
+      #{$slope-to-unit}#{$unit} + #{$intercept-rem},
+      #{rem($max-size)}
+    );
+  }
+
+  @error "'#{$min-size}' and '#{$max-size}' should not have unit";
+}
+
+@function small-to-medium($min-size, $max-size) {
+  @return fluid($min-size,$max-size,small,medium);
 }

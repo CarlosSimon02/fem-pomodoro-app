@@ -1,8 +1,8 @@
 @use '../abstracts' as *;
 
 .timer {
-    width: rem(300);
-    height: rem(300);
+    width: small-to-medium(300,410);
+    aspect-ratio: 1 / 1;
     background: var(--timer-background);
     box-shadow: var(--timer-box-shadow);
     color: var(--timer-foreground-color);
@@ -13,8 +13,8 @@
     justify-content: center;
 
     &__inner {
-        width: 90%;
-        height: 90%;
+        width: 89.26%;
+        height: 89.26%;
         background-color: var(--primary-color-2);
         border-radius: inherit;
         display: flex;
@@ -22,7 +22,7 @@
         align-items: center;
         justify-content: center;
         position: relative;
-        gap: rem(15);
+        gap: small-to-medium(15,19);
         
         &>* {
             z-index: 1;
@@ -39,11 +39,19 @@
                 fill: var(--accent-color-1);
             }
         }
+
+        &--text {
+            color: inherit;
+            font-size: small-to-medium(14,16);
+            text-transform: uppercase;
+            letter-spacing: rem(13.13);
+            margin-right: rem(-13.13);
+        }
     }
 
     &__progress-bar {
-        width: rem(250);
-        height: rem(250);
+        width: 92.62295%;
+        aspect-ratio: 1 / 1;
         position: absolute;
         transform: rotate(-90deg);
 
@@ -51,13 +59,14 @@
             fill: none;
             stroke: var(--accent-color-1);
             stroke-width: 4%;
+            stroke-width: small-to-medium(8,11);
             stroke-dasharray: 753.98;
             stroke-dashoffset: 100;
         }
     }
 
     &__digits {
-        font-size: rem(80);
+        font-size: small-to-medium(80,100);
         line-height: 1;
     }
 }

@@ -1,0 +1,16 @@
+$breakpoints-up: (
+  "small": 23.4375em, // => 375px
+  "medium": 43.75em, // => 700px
+);
+
+$breakpoints-down: (
+  "small": 23.43625em, // => 374.98px
+  "medium": 53.0625em, // => 699.98px
+);
+
+$breakpoints: (
+    "small": 375,
+    "medium": 700
+);
+// Note: The values indicated above (e.g. => 375px) is the pixel size equivalent 
+// when user settings font size is 16px

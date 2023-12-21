@@ -1,20 +1,21 @@
 @use "../abstracts/" as *;
 
-.timer-switcher {
+.timer-toggle {
+  width: small-to-medium(327, 373);
+  height: rem(63);
   padding: rem(7);
-  font-size: rem(12);
-  display: flex;
+  font-size: small-to-medium(12,14);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-evenly;
   border-radius: 9999rem;
   background-color: var(--primary-color-2);
   z-index: 2;
 
-  &__radio {
-    display: none;
-  }
-
   &__item {
-    padding-block: rem(16);
-    padding-inline: rem(20);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 9999rem;
   }
 

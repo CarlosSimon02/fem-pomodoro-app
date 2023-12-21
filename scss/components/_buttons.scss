@@ -22,13 +22,5 @@
                 fill: var(--secondary-color-1);
             }
         }
-
-        &--text {
-            color: inherit;
-            font-size: rem(14);
-            text-transform: uppercase;
-            letter-spacing: rem(13.13);
-            margin-right: rem(-13.13);
-        }
     }
 }
