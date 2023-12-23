@@ -54,15 +54,3 @@
     #{$max}
   );
 }
-
-@mixin breakpoint-up($size) {
-  @media screen and (min-width: map-get($breakpoints-up, $size)) {
-    @content;
-  }
-}
-
-@mixin breakpoint-down($size) {
-  @media screen and (max-width: map-get($breakpoints-down, $size)) {
-    @content;
-  }
-}

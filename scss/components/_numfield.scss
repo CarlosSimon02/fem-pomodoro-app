@@ -16,6 +16,11 @@
         background-color: var(--input-bg-color);
         border: none;
         border-radius: rem(10);
+        color: var(--primary-color-2);
+        outline: none;
+        padding-inline-start: rem(16);
+        padding-inline-end: rem(46);
+        font-size: rem(14);
     }
 
     &__spin-wrapper {
@@ -36,7 +41,7 @@
         display: flex;
         background-color: transparent;
 
-        &:hover {
+        @include on-event {
             & path {
                 stroke-opacity: 1;
             }

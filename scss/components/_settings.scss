@@ -12,6 +12,10 @@
   position: relative;
   overflow: visible;
 
+  @include breakpoint-down(demi-medium) {
+    max-height: rem(565);
+  }
+
   &::backdrop {
     background-color: var(--backdrop-color);
   }
@@ -142,8 +146,8 @@
     justify-content: center;
     border-radius: 100%;
 
-    &:hover {
-      outline: var(--input-bg-color) solid rem(1);
+    @include on-event {
+      outline: var(--input-bg-color) solid rem(2);
       outline-offset: rem(5);
     }
 
@@ -205,5 +209,9 @@
     bottom: rem(-26);
     left: 50%;
     translate: -50%;
+
+    @include on-event {
+      filter: brightness(120%);
+    }
   }
 }

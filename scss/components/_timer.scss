@@ -32,7 +32,7 @@
     &__button {
         opacity: 1;
 
-        &:hover {
+        @include on-event {
             color: var(--accent-color-1);
 
             & path {
