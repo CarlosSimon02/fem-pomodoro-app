@@ -85,7 +85,9 @@
             >
               <circle cx="125" cy="125" r="120" stroke-linecap="round" />
             </svg>
-            <button class="timer__button timer__button--icon button button--link">
+            <button
+              class="timer__button timer__button--icon button button--link"
+            >
               <svg
                 width="32"
                 height="32"
@@ -176,7 +178,7 @@
     <dialog class="settings js-settings-modal">
       <form class="settings__form" action="">
         <header class="settings__content settings__content--header">
-          <h1 class="settings-modal__header__text">Settings</h1>
+          <h1 class="settings__title">Settings</h1>
           <button class="settings__close button button--link">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14">
               <path
@@ -188,51 +190,229 @@
             </svg>
           </button>
         </header>
-        <hr>
+        <hr class="settings__divider" />
         <section class="settings__content settings__content--main">
-          <fieldset class="fieldset">
-            <legend>Tme (minutes)</legend>
-            <div>
-              <div>
-                <div>
-                  <label for="pomodoro-time">pomodoro</label>
-                  <input type="text" name="time" id="pomodoro-time">
+          <fieldset class="settings__fieldset fieldset">
+            <h2 class="settings__legend">Time (minutes)</h2>
+            <div
+              class="settings__input-group-wrapper settings__input-group-wrapper--textfield-group"
+            >
+              <div class="settings__input-wrapper">
+                <label class="settings__field-label" for="pomodoro-time"
+                  >pomodoro</label
+                >
+                <div class="numfield">
+                  <input
+                    class="numfield__input"
+                    type="text"
+                    name="time"
+                    id="pomodoro-time"
+                  />
+                  <div class="numfield__spin-wrapper">
+                    <button class="numfield__spin numfield__spin--up button">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="7"
+                      >
+                        <path
+                          fill="none"
+                          stroke="#1E213F"
+                          stroke-opacity=".25"
+                          stroke-width="2"
+                          d="M1 6l6-4 6 4"
+                        />
+                      </svg>
+                    </button>
+                    <button class="numfield__spin numfield__spin--down button">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="7"
+                      >
+                        <path
+                          fill="none"
+                          stroke="#1E213F"
+                          stroke-opacity=".25"
+                          stroke-width="2"
+                          d="M1 1l6 4 6-4"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
-                <div>
-                  <label for="short-break-time">short break</label>
-                  <input type="text" name="time" id="short-break-time">
+              </div>
+              <div class="settings__input-wrapper">
+                <label class="settings__field-label" for="short-break-time"
+                  >short break</label
+                >
+                <div class="numfield">
+                  <input
+                    class="numfield__input"
+                    type="text"
+                    name="time"
+                    id="short-break-time"
+                  />
+                  <div class="numfield__spin-wrapper">
+                    <button class="numfield__spin numfield__spin--up button">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="7"
+                      >
+                        <path
+                          fill="none"
+                          stroke="#1E213F"
+                          stroke-opacity=".25"
+                          stroke-width="2"
+                          d="M1 6l6-4 6 4"
+                        />
+                      </svg>
+                    </button>
+                    <button class="numfield__spin numfield__spin--down button">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="7"
+                      >
+                        <path
+                          fill="none"
+                          stroke="#1E213F"
+                          stroke-opacity=".25"
+                          stroke-width="2"
+                          d="M1 1l6 4 6-4"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
-                <div>
-                  <label for="long-break-time">long break</label>
-                  <input type="text" name="time" id="long-break-time">
+              </div>
+              <div class="settings__input-wrapper">
+                <label class="settings__field-label" for="long-break-time"
+                  >long break</label
+                >
+                <div class="numfield">
+                  <input
+                    class="numfield__input"
+                    type="text"
+                    name="time"
+                    id="long-break-time"
+                  />
+                  <div class="numfield__spin-wrapper">
+                    <button class="numfield__spin numfield__spin--up button">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="7"
+                      >
+                        <path
+                          fill="none"
+                          stroke="#1E213F"
+                          stroke-opacity=".25"
+                          stroke-width="2"
+                          d="M1 6l6-4 6 4"
+                        />
+                      </svg>
+                    </button>
+                    <button class="numfield__spin numfield__spin--down button">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="7"
+                      >
+                        <path
+                          fill="none"
+                          stroke="#1E213F"
+                          stroke-opacity=".25"
+                          stroke-width="2"
+                          d="M1 1l6 4 6-4"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </fieldset>
-          <fieldset class="fieldset">
-            <legend>Font</legend>
-            <div>
-              <input class="radio" type="radio" name="current-font" id="kumbh-sans" checked>
-              <label for="kumbh-sans">Aa</label>
-              <input class="radio" type="radio" name="current-font" id="roboto-slab">
-              <label for="roboto-slab">Aa</label>
-              <input class="radio" type="radio" name="current-font" id="space-mono">
-              <label for="space-mono">Aa</label>
+          <hr class="settings__divider" />
+          <fieldset class="settings__fieldset settings__fieldset--radio fieldset">
+            <h2 class="settings__legend">Font</h2>
+            <div class="settings__input-group-wrapper">
+              <input
+                class="radio"
+                type="radio"
+                name="current-font"
+                id="kumbh-sans"
+                checked
+              />
+              <label
+                class="settings__choice settings__choice--font settings__choice--font--kumbh-sans button"
+                for="kumbh-sans"
+                >Aa</label
+              >
+              <input
+                class="radio"
+                type="radio"
+                name="current-font"
+                id="roboto-slab"
+              />
+              <label
+                class="settings__choice settings__choice--font settings__choice--font--roboto-slab button"
+                for="roboto-slab"
+                >Aa</label
+              >
+              <input
+                class="radio"
+                type="radio"
+                name="current-font"
+                id="space-mono"
+              />
+              <label
+                class="settings__choice settings__choice--font settings__choice--font--space-mono button"
+                for="space-mono"
+                >Aa</label
+              >
             </div>
           </fieldset>
-          <fieldset class="fieldset">
-            <legend>Color</legend>
-            <div>
-              <input class="radio" type="radio" name="current-accent" id="georgie-peach" checked>
-              <label for="georgie-peach"></label>
-              <input class="radio" type="radio" name="current-accent" id="robins-egg">
-              <label for="robins-egg"></label>
-              <input class="radio" type="radio" name="current-accent" id="lavender-tea">
-              <label for="lavender-tea"></label>
+          <hr class="settings__divider" />
+          <fieldset class="settings__fieldset settings__fieldset--radio fieldset">
+            <h2 class="settings__legend">Color</h2>
+            <div class="settings__input-group-wrapper">
+              <input
+                class="radio"
+                type="radio"
+                name="current-accent"
+                id="georgie-peach"
+                checked
+              />
+              <label
+                class="settings__choice settings__choice--color settings__choice--color--gergie-peach button"
+                for="georgie-peach"
+              ></label>
+              <input
+                class="radio"
+                type="radio"
+                name="current-accent"
+                id="robins-egg"
+              />
+              <label
+                class="settings__choice settings__choice--color settings__choice--color--robins-egg button"
+                for="robins-egg"
+              ></label>
+              <input
+                class="radio"
+                type="radio"
+                name="current-accent"
+                id="lavender-tea"
+              />
+              <label
+                class="settings__choice settings__choice--color settings__choice--color--lavender-tea button"
+                for="lavender-tea"
+              ></label>
             </div>
           </fieldset>
         </section>
-        <button>Apply</button>
+        <button class="settings__apply">Apply</button>
       </form>
     </dialog>
   </body>

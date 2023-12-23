@@ -1,0 +1,55 @@
+@use '../abstracts' as *;
+
+.numfield {
+    width: 100%;
+    height: rem(40);
+    max-width: rem(140);
+    position: relative;
+
+    @include breakpoint-up(demi-medium) {
+        height: rem(48);
+      }
+
+    &__input {
+        height: 100%;
+        width: 100%;
+        background-color: var(--input-bg-color);
+        border: none;
+        border-radius: rem(10);
+    }
+
+    &__spin-wrapper {
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    &__spin {
+        height: 100%;
+        padding: 0;
+        padding-inline: rem(16);
+        border: 0;
+        display: flex;
+        background-color: transparent;
+
+        &:hover {
+            & path {
+                stroke-opacity: 1;
+            }
+        }
+        
+        &--up {
+            align-items: flex-end;
+            padding-bottom: rem(5);
+        }
+
+        &--down {
+            align-items: flex-start;
+            padding-top: rem(5);
+        }
+    }
+}

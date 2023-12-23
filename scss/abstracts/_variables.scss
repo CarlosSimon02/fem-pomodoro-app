@@ -1,16 +1,28 @@
 $breakpoints-up: (
-  "small": 23.4375em, // => 375px
-  "medium": 43.75em, // => 700px
+  "small": 23.4375em,
+  // => 375px
+  "demi-medium": 26.25em,
+  // => 420px
+  "medium": 43.75em,
+  // => 700px
 );
 
 $breakpoints-down: (
-  "small": 23.43625em, // => 374.98px
-  "medium": 53.0625em, // => 699.98px
+  "small": 23.43625em,
+  // => 374.98px
+  "demi-medium": 26.24875em,
+  // => 419.98px
+  "medium": 53.0625em,
+  // => 699.98px
 );
 
 $breakpoints: (
-    "small": 375,
-    "medium": 700
+  "small": 375,
+  "medium": 700,
 );
-// Note: The values indicated above (e.g. => 375px) is the pixel size equivalent 
+
+$breakpoints-vertical: (
+  "small": 800,
+);
+// Note: The values indicated above (e.g. => 375px) is the pixel size equivalent
 // when user settings font size is 16px

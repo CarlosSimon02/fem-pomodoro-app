@@ -6,8 +6,8 @@
   align-items: center;
 
   &__wrapper {
-    margin-top: small-to-medium(32, 80);
-    margin-bottom: small-to-medium(48, 103);
+    margin-top: small-to-medium-xy(32, 48, 80);
+    margin-bottom: small-to-medium-xy(40, 56, 103);
     margin-inline: auto;
     display: flex;
     flex-direction: column;
@@ -20,8 +20,8 @@
   }
 
   &__timer {
-    margin-top: small-to-medium(48,109);
-    margin-bottom: small-to-medium(79,144);
+    margin-top: small-to-medium-xy(45, 45, 109);
+    margin-bottom: small-to-medium-xy(55, 55, 144);
   }
 
   &__bottom {
