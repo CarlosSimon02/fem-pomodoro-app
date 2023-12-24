@@ -12,14 +12,41 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="canonical" href="https://femnpomodoroapp.vercel.app/" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-    <link
-      rel="author"
-      href="https://femnpomodoroapp.vercel.app/humans.txt"
-    />
+    <link rel="author" href="https://femnpomodoroapp.vercel.app/humans.txt" />
     <script>
       document.querySelector("html").removeAttribute("class");
     </script>
-    <script src="js/main.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+
+    <!-- favicons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/favicons/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/favicons/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="/favicons/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- end favicons -->
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,7 +55,6 @@
       href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@700&family=Roboto+Slab:wght@700&family=Space+Mono:wght@700&display=swap"
       rel="stylesheet"
     />
-    <script defer src="js/main.js"></script>
   </head>
   <body>
     <main class="main">
@@ -343,7 +369,9 @@
             </div>
           </fieldset>
           <hr class="settings__divider" />
-          <fieldset class="settings__fieldset settings__fieldset--radio fieldset">
+          <fieldset
+            class="settings__fieldset settings__fieldset--radio fieldset"
+          >
             <h2 class="settings__legend">Font</h2>
             <div class="settings__input-group-wrapper">
               <input
@@ -383,7 +411,9 @@
             </div>
           </fieldset>
           <hr class="settings__divider" />
-          <fieldset class="settings__fieldset settings__fieldset--radio fieldset">
+          <fieldset
+            class="settings__fieldset settings__fieldset--radio fieldset"
+          >
             <h2 class="settings__legend">Color</h2>
             <div class="settings__input-group-wrapper">
               <input
