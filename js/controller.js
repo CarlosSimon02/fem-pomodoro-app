@@ -16,6 +16,14 @@ export default class Controller {
     view.bindRestartTimer(this.restartTimer.bind(this));
   }
 
+  #renderTimerAndProgressBar() {
+    let timeRemaining = this.#store.getTimeRemaining();
+    let targetTime = this.#store.getTargetTime();
+
+    this.#view.updateTimerDisplay(timeRemaining);
+    this.#view.updateProgressBar((1 - (timeRemaining / targetTime)));
+  }
+
   #setTimerStateAndButtonLabel(isRunning) {
     this.#store.setIsTimerRunning(isRunning);
     this.#view.togglePlayPauseButtonLabel(isRunning);
@@ -30,7 +38,7 @@ export default class Controller {
       const elapsedTime = (currentTime - startTime) / MILLISECONDS_PER_SECOND;
 
       this.#store.decreaseTimeRemainingBy(elapsedTime);
-      this.#view.setTimer(this.#store.getTimeRemaining());
+      this.#renderTimerAndProgressBar();
 
       startTime = currentTime; // Update start time for next interval
     }, 10);
@@ -56,5 +64,6 @@ export default class Controller {
   restartTimer() {
     this.#pauseTimer();
     this.#store.resetTimeRemaining();
+    this.#renderTimerAndProgressBar();
   }
 }

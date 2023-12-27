@@ -2,7 +2,7 @@
 
 export default class Store {
   #isTimerRunning = false;
-  #targetTime = 1800;
+  #targetTime = 60;
   #timeRemaining = this.#targetTime;
   #timerIntervalId = null;
 
@@ -12,6 +12,10 @@ export default class Store {
 
   setIsTimerRunning(value) {
     this.#isTimerRunning = value;
+  }
+
+  getTargetTime() {
+    return this.#targetTime;
   }
 
   getTimeRemaining() {

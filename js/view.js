@@ -1,4 +1,4 @@
-import { qs, on } from "./helpers.js";
+import { PROGRESS_BAR_CIRC, qs, on } from "./helpers.js";
 import Template from "./template.js";
 
 export default class View {
@@ -6,6 +6,7 @@ export default class View {
   #playPauseTimer = qs(".js-play-pause-timer");
   #restartTimer = qs(".js-restart-timer");
   #timer = qs(".js-timer");
+  #progressBar = qs(".js-progress-bar circle");
 
   /**
    * @param {!Template} template A Template instance
@@ -15,12 +16,22 @@ export default class View {
   }
 
   /**
-   * Set the timer display
+   * Updates the timer display with the provided time.
    *
-   * @param {number} time The time to display in seconds
+   * @param {number} timeInSeconds The time to be displayed in seconds
    */
-  setTimer(time) {
-    this.#timer.innerHTML = this.#template.formatTime(time);
+  updateTimerDisplay(timeInSeconds) {
+    this.#timer.innerHTML = this.#template.formatTime(timeInSeconds);
+  }
+
+  /**
+   * Update the progress bar with a value between 0 and 1.
+   *
+   * @param {number} value The value representing progress (0 to 1)
+   */
+  updateProgressBar(value) {
+    const progressBarOffset = value * PROGRESS_BAR_CIRC;
+    this.#progressBar.style.strokeDashoffset = progressBarOffset;
   }
 
   /**
