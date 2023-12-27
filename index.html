@@ -16,7 +16,7 @@
     <script>
       document.querySelector("html").removeAttribute("class");
     </script>
-    <script src="js/main.js" defer></script>
+    <script src="./js/main.js" type="module"></script>
 
     <!-- favicons -->
     <link
@@ -154,7 +154,7 @@
               <circle cx="125" cy="125" r="120" stroke-linecap="round" />
             </svg>
             <button
-              class="timer__button timer__button--icon button button--link"
+              class="timer__button timer__button--icon button button--link js-restart-timer"
             >
               <svg
                 width="32"
@@ -169,11 +169,11 @@
                 />
               </svg>
             </button>
-            <div class="timer__digits">17:59</div>
+            <div class="timer__digits js-timer">30:00</div>
             <button
-              class="timer__button timer__button--text button button--link"
+              class="timer__button timer__button--text button button--link js-play-pause-timer"
             >
-              Pause
+              Play
             </button>
           </div>
         </div>
@@ -189,6 +189,8 @@
               xml:space="preserve"
               width="32"
               height="32"
+              hidden="true"
+              focusable="false"
             >
               <g id="SVGRepo_bgCarrier" stroke-width="0" />
               <g
@@ -208,6 +210,7 @@
                 <rect class="st0" width="24" height="24" />
               </g>
             </svg>
+            <span class="sr-only">Settings</span>
           </button>
           <button class="button button--link">
             <svg
@@ -220,6 +223,8 @@
               xml:space="preserve"
               width="32"
               height="32"
+              hidden="true"
+              focusable="false"
             >
               <g id="SVGRepo_bgCarrier" stroke-width="0" />
               <g
@@ -239,6 +244,7 @@
                 <rect class="st0" width="24" height="24" />
               </g>
             </svg>
+            <span class="sr-only">Attribution</span>
           </button>
         </div>
       </div>
@@ -248,7 +254,12 @@
         <header class="settings__content settings__content--header">
           <h1 class="settings__title">Settings</h1>
           <button class="settings__close button button--link">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14"
+              hidden="true"
+              focusable="false"
+            >
               <path
                 fill="#1E213F"
                 fill-rule="evenodd"
@@ -256,6 +267,7 @@
                 opacity=".5"
               />
             </svg>
+            <span class="sr-only">Close</span>
           </button>
         </header>
         <hr class="settings__divider" />
@@ -291,6 +303,7 @@
                           d="M1 6l6-4 6 4"
                         />
                       </svg>
+                      <span class="sr-only">Increment by one</span>
                     </button>
                     <button class="numfield__spin numfield__spin--down button">
                       <svg
@@ -306,6 +319,7 @@
                           d="M1 1l6 4 6-4"
                         />
                       </svg>
+                      <span class="sr-only">Decrement by one</span>
                     </button>
                   </div>
                 </div>
@@ -336,6 +350,7 @@
                           d="M1 6l6-4 6 4"
                         />
                       </svg>
+                      <span class="sr-only">Increment by one</span>
                     </button>
                     <button class="numfield__spin numfield__spin--down button">
                       <svg
@@ -351,6 +366,7 @@
                           d="M1 1l6 4 6-4"
                         />
                       </svg>
+                      <span class="sr-only">Decrement by one</span>
                     </button>
                   </div>
                 </div>
@@ -381,6 +397,7 @@
                           d="M1 6l6-4 6 4"
                         />
                       </svg>
+                      <span class="sr-only">Increment by one</span>
                     </button>
                     <button class="numfield__spin numfield__spin--down button">
                       <svg
@@ -396,6 +413,7 @@
                           d="M1 1l6 4 6-4"
                         />
                       </svg>
+                      <span class="sr-only">Decrement by one</span>
                     </button>
                   </div>
                 </div>
@@ -418,8 +436,8 @@
               <label
                 class="settings__choice settings__choice--font settings__choice--font--kumbh-sans button"
                 for="kumbh-sans"
-                >Aa</label
-              >
+                ><span class="sr-only">Kumbh Sans</span><span>Aa</span>
+              </label>
               <input
                 class="radio"
                 type="radio"
@@ -429,7 +447,7 @@
               <label
                 class="settings__choice settings__choice--font settings__choice--font--roboto-slab button"
                 for="roboto-slab"
-                >Aa</label
+                ><span class="sr-only">Roboto Slab</span><span>Aa</span></label
               >
               <input
                 class="radio"
@@ -440,7 +458,7 @@
               <label
                 class="settings__choice settings__choice--font settings__choice--font--space-mono button"
                 for="space-mono"
-                >Aa</label
+                ><span class="sr-only">Space Mono</span><span>Aa</span></label
               >
             </div>
           </fieldset>
@@ -460,7 +478,7 @@
               <label
                 class="settings__choice settings__choice--color settings__choice--color--gergie-peach button"
                 for="georgie-peach"
-              ></label>
+              ><span class="sr-only">Georgie Peach</span></label>
               <input
                 class="radio"
                 type="radio"
@@ -470,7 +488,7 @@
               <label
                 class="settings__choice settings__choice--color settings__choice--color--robins-egg button"
                 for="robins-egg"
-              ></label>
+              ><span class="sr-only">Robins Egg</span></label>
               <input
                 class="radio"
                 type="radio"
@@ -480,7 +498,7 @@
               <label
                 class="settings__choice settings__choice--color settings__choice--color--lavender-tea button"
                 for="lavender-tea"
-              ></label>
+              ><span class="sr-only">Lavender Tea</span></label>
             </div>
           </fieldset>
         </section>
