@@ -7,5 +7,5 @@ const store = new Store();
 const view = new View();
 const controller = new Controller(store, view);
 
-const setView = controller.setView;
+const setView = controller.setView.bind(controller);
 on(window, 'load', setView);

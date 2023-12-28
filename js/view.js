@@ -66,4 +66,10 @@ export default class View {
       });
     })
   }
+
+  renderTimerModeSelection(modeIndex) {
+    let radioButton = qs(`.js-timer-mode[value="${modeIndex}"]`);
+    radioButton.checked = true;
+    radioButton.dispatchEvent(new Event('change'));
+  }
 }

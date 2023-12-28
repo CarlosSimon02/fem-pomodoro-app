@@ -14,7 +14,7 @@ export default class Store {
     ];
     this.#isTimerRunning = false;
     this.#timerIntervalId = null;
-    this.#currentTimerModeIndex = 1;
+    this.#currentTimerModeIndex = 0;
   }
 
   getIsTimerRunning() {
@@ -27,6 +27,10 @@ export default class Store {
 
   getCurrentMode() {
     return this.#timerModes[this.#currentTimerModeIndex];
+  }
+
+  getCurrentModeIndex() {
+    return this.#currentTimerModeIndex;
   }
 
   setCurrentMode(modeIndex) {

@@ -75,6 +75,7 @@ export default class Controller {
   }
 
   setView() {
-
+    const currentModeIndex = this.#store.getCurrentModeIndex();
+    this.#view.renderTimerModeSelection(currentModeIndex);
   }
 }
