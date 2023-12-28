@@ -1,6 +1,6 @@
-import { MILLISECONDS_PER_SECOND } from "../helpers.js";
+import { MILLISECONDS_PER_SECOND } from "./helpers.js";
 
-export default class TimerController {
+export default class Controller {
   #store = null;
   #view = null;
 
@@ -17,8 +17,8 @@ export default class TimerController {
   }
 
   #renderTimerAndProgressBar() {
-    let timeRemaining = this.#store.getTimeRemaining();
-    let targetTime = this.#store.getTargetTime();
+    let timeRemaining = this.#store.getCurrentMode().getTimeRemaining();
+    let targetTime = this.#store.getCurrentMode().getTargetTime();
 
     this.#view.updateTimerDisplay(timeRemaining);
     this.#view.updateProgressBar(1 - (timeRemaining / targetTime));
@@ -37,7 +37,7 @@ export default class TimerController {
       const currentTime = Date.now();
       const elapsedTime = (currentTime - startTime) / MILLISECONDS_PER_SECOND;
 
-      this.#store.decreaseTimeRemainingBy(elapsedTime);
+      this.#store.getCurrentMode().decreaseTimeRemainingBy(elapsedTime);
       this.#renderTimerAndProgressBar();
 
       startTime = currentTime; // Update start time for next interval
@@ -63,7 +63,7 @@ export default class TimerController {
 
   restartTimer() {
     this.#pauseTimer();
-    this.#store.resetTimeRemaining();
+    this.#store.getCurrentMode().resetTimeRemaining();
     this.#renderTimerAndProgressBar();
   }
 }

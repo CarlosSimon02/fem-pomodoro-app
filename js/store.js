@@ -1,4 +1,6 @@
-export default class TimerStore {
+import TimerMode from "./timerMode.js";
+
+export default class Store {
   #timerModes;
   #isTimerRunning;
   #timerIntervalId;
@@ -12,7 +14,7 @@ export default class TimerStore {
     ];
     this.#isTimerRunning = false;
     this.#timerIntervalId = null;
-    this.#currentTimerModeIndex = 0;
+    this.#currentTimerModeIndex = 1;
   }
 
   getIsTimerRunning() {
@@ -29,16 +31,6 @@ export default class TimerStore {
 
   switchToMode(modeIndex) {
     this.#currentTimerModeIndex = modeIndex;
-  }
-
-  decreaseTimeRemaining(decrementor) {
-    const currentMode = this.getCurrentMode();
-    currentMode.decreaseTimeRemainingBy(decrementor);
-  }
-
-  resetTimeRemaining() {
-    const currentMode = this.getCurrentMode();
-    currentMode.resetTimeRemaining();
   }
 
   setTimerIntervalId(intervalId) {

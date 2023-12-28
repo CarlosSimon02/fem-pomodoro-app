@@ -1,6 +1,6 @@
-import { PROGRESS_BAR_CIRC, qs, on, formatTime } from "../helpers.js";
+import { PROGRESS_BAR_CIRC, qs, on, formatTime } from "./helpers.js";
 
-export default class TimerView {
+export default class View {
   #playPauseTimer;
   #restartTimer;
   #timer;
