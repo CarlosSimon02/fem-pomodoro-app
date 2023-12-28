@@ -11,6 +11,7 @@ export default class TimerMode {
 
   /**
    * Reduces the time remaining by a specified value and ensures the time does not go below zero.
+   * 
    * @param {number} decrementor - The value in secnnds by which to decrease the time remaining
    */
   decreaseTimeRemainingBy(decrementor) {

@@ -29,7 +29,7 @@ export default class Store {
     return this.#timerModes[this.#currentTimerModeIndex];
   }
 
-  switchToMode(modeIndex) {
+  setCurrentMode(modeIndex) {
     this.#currentTimerModeIndex = modeIndex;
   }
 

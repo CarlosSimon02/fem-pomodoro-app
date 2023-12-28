@@ -13,6 +13,17 @@ export function qs(selector, scope) {
 }
 
 /**
+ * querySelectorAll wrapper
+ *
+ * @param {string} selector Selector to query
+ * @param {Element} [scope] Optional scope element for the selector
+ */
+export function qsa(selector, scope) {
+  const elements = (scope || document).querySelectorAll(selector);
+  return Array.from(elements); // Convert NodeList to Array for easier manipulation
+}
+
+/**
  * addEventListener wrapper
  *
  * @param {Element|Window} target Target Element

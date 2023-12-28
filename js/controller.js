@@ -5,8 +5,8 @@ export default class Controller {
   #view = null;
 
   /**
-   * @param  {!TimerStore} store A TimerStore instance
-   * @param  {!TimerView} view A TimerView instance
+   * @param  {!TimerStore} store A Store instance
+   * @param  {!TimerView} view A View instance
    */
   constructor(store, view) {
     this.#store = store;
@@ -14,6 +14,7 @@ export default class Controller {
 
     view.bindPlayPauseTimer(this.playPauseTimer.bind(this));
     view.bindRestartTimer(this.restartTimer.bind(this));
+    view.bindSelectedTimerMode(this.setAndRenderMode.bind(this));
   }
 
   #renderTimerAndProgressBar() {
@@ -65,5 +66,15 @@ export default class Controller {
     this.#pauseTimer();
     this.#store.getCurrentMode().resetTimeRemaining();
     this.#renderTimerAndProgressBar();
+  }
+
+  setAndRenderMode(modeIndex) {
+    this.#pauseTimer();
+    this.#store.setCurrentMode(modeIndex);
+    this.#renderTimerAndProgressBar();
+  }
+
+  setView() {
+
   }
 }

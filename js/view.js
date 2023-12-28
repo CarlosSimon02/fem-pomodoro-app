@@ -1,16 +1,18 @@
-import { PROGRESS_BAR_CIRC, qs, on, formatTime } from "./helpers.js";
+import { PROGRESS_BAR_CIRC, qs, qsa, on, formatTime } from "./helpers.js";
 
 export default class View {
   #playPauseTimer;
   #restartTimer;
   #timer;
   #progressBar;
+  #timerModes;
 
   constructor() {
     this.#playPauseTimer = qs(".js-play-pause-timer");
     this.#restartTimer = qs(".js-restart-timer");
     this.#timer = qs(".js-timer");
     this.#progressBar = qs(".js-progress-bar circle");
+    this.#timerModes = qsa(".js-timer-mode");
   }
 
   /**
@@ -51,5 +53,17 @@ export default class View {
    */
   bindRestartTimer(handler) {
     on(this.#restartTimer, "click", handler);
+  }
+
+  /**
+   * @param {Function} handler Function called on synthetic event.
+   */
+  bindSelectedTimerMode(handler) {
+    this.#timerModes.forEach(timerMode => {
+      on(timerMode, "change", function() {
+        if(this.checked)
+          handler(this.value);
+      });
+    })
   }
 }

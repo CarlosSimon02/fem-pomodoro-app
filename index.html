@@ -106,22 +106,22 @@
         </svg>
         <nav class="main__timer-toggle timer-toggle">
           <input
-            class="timer-toggle__radio radio"
+            class="timer-toggle__radio radio js-timer-mode"
             type="radio"
             id="pomodoro"
-            name="timer-type"
-            value="pomodoro"
+            name="timer-mode"
+            value="0"
             checked
           />
           <label class="timer-toggle__item button button--link" for="pomodoro"
             >pomodoro</label
           >
           <input
-            class="timer-toggle__radio radio"
+            class="timer-toggle__radio radio js-timer-mode"
             type="radio"
             id="short-break"
-            name="timer-type"
-            value="short-break"
+            name="timer-mode"
+            value="1"
           />
           <label
             class="timer-toggle__item button button--link"
@@ -130,11 +130,11 @@
             short break
           </label>
           <input
-            class="timer-toggle__radio radio"
+            class="timer-toggle__radio radio js-timer-mode"
             type="radio"
             id="long-break"
-            name="timer-type"
-            value="long-break"
+            name="timer-mode"
+            value="2"
           />
           <label
             class="timer-toggle__item button button--link"
