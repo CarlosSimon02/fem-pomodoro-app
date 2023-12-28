@@ -9,7 +9,7 @@ export const PROGRESS_BAR_CIRC = 753.98;
  * @param {Element} [scope] Optional scope element for the selector
  */
 export function qs(selector, scope) {
-	return (scope || document).querySelector(selector);
+  return (scope || document).querySelector(selector);
 }
 
 /**
@@ -21,5 +21,21 @@ export function qs(selector, scope) {
  * @param {boolean} [capture] Capture the event
  */
 export function on(target, type, callback, capture) {
-	target.addEventListener(type, callback, !!capture);
+  target.addEventListener(type, callback, !!capture);
+}
+
+/**
+ * Formats time in seconds to a string representation (e.g., 17:59).
+ *
+ * @param {number} timeInSeconds The time in seconds to be converted
+ * @returns {string} The formatted time string
+ */
+export function formatTime(timeInSeconds) {
+  const minutes = String(
+    Math.floor(timeInSeconds / SECONDS_PER_MINUTE)
+  ).padStart(2, "0");
+  const seconds = String(
+    Math.floor(timeInSeconds % SECONDS_PER_MINUTE)
+  ).padStart(2, "0");
+  return `${minutes}:${seconds}`;
 }

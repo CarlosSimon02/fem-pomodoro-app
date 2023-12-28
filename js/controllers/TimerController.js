@@ -1,12 +1,12 @@
-import { MILLISECONDS_PER_SECOND } from "./helpers.js";
+import { MILLISECONDS_PER_SECOND } from "../helpers.js";
 
-export default class Controller {
+export default class TimerController {
   #store = null;
   #view = null;
 
   /**
-   * @param  {!Store} store A Store instance
-   * @param  {!View} view A View instance
+   * @param  {!TimerStore} store A TimerStore instance
+   * @param  {!TimerView} view A TimerView instance
    */
   constructor(store, view) {
     this.#store = store;
@@ -21,7 +21,7 @@ export default class Controller {
     let targetTime = this.#store.getTargetTime();
 
     this.#view.updateTimerDisplay(timeRemaining);
-    this.#view.updateProgressBar((1 - (timeRemaining / targetTime)));
+    this.#view.updateProgressBar(1 - (timeRemaining / targetTime));
   }
 
   #setTimerStateAndButtonLabel(isRunning) {

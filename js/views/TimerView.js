@@ -1,18 +1,16 @@
-import { PROGRESS_BAR_CIRC, qs, on } from "./helpers.js";
-import Template from "./template.js";
+import { PROGRESS_BAR_CIRC, qs, on, formatTime } from "../helpers.js";
 
-export default class View {
-  #template = null;
-  #playPauseTimer = qs(".js-play-pause-timer");
-  #restartTimer = qs(".js-restart-timer");
-  #timer = qs(".js-timer");
-  #progressBar = qs(".js-progress-bar circle");
+export default class TimerView {
+  #playPauseTimer;
+  #restartTimer;
+  #timer;
+  #progressBar;
 
-  /**
-   * @param {!Template} template A Template instance
-   */
-  constructor(template) {
-    this.#template = template;
+  constructor() {
+    this.#playPauseTimer = qs(".js-play-pause-timer");
+    this.#restartTimer = qs(".js-restart-timer");
+    this.#timer = qs(".js-timer");
+    this.#progressBar = qs(".js-progress-bar circle");
   }
 
   /**
@@ -21,7 +19,7 @@ export default class View {
    * @param {number} timeInSeconds The time to be displayed in seconds
    */
   updateTimerDisplay(timeInSeconds) {
-    this.#timer.innerHTML = this.#template.formatTime(timeInSeconds);
+    this.#timer.innerHTML = formatTime(timeInSeconds);
   }
 
   /**
