@@ -177,7 +177,7 @@
           </div>
         </div>
         <div class="main__bottom">
-          <button class="button button--link js-open-settings-btn">
+          <button class="button button--link js-open-settings">
             <svg
               fill="#D7E0FF"
               version="1.1"
@@ -209,7 +209,7 @@
                 <rect class="st0" width="24" height="24" />
               </g>
             </svg>
-            <span class="sr-only">Settings</span>
+            <span class="sr-only">Open Settings</span>
           </button>
           <button class="button button--link">
             <svg
@@ -248,261 +248,258 @@
         </div>
       </div>
     </main>
-    <dialog class="settings js-settings-modal">
-      <form class="settings__form" action="">
-        <header class="settings__content settings__content--header">
-          <h1 class="settings__title">Settings</h1>
-          <button class="settings__close button button--link">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 14 14"
-              hidden="true"
-              focusable="false"
-            >
-              <path
-                fill="#1E213F"
-                fill-rule="evenodd"
-                d="M11.95.636l1.414 1.414L8.414 7l4.95 4.95-1.414 1.414L7 8.414l-4.95 4.95L.636 11.95 5.586 7 .636 2.05 2.05.636 7 5.586l4.95-4.95z"
-                opacity=".5"
-              />
-            </svg>
-            <span class="sr-only">Close</span>
-          </button>
-        </header>
+    <dialog class="settings js-settings">
+      <header class="settings__content settings__content--header">
+        <h1 class="settings__title">Settings</h1>
+        <button class="settings__close button button--link js-close-settings">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 14 14"
+            hidden="true"
+            focusable="false"
+          >
+            <path
+              fill="#1E213F"
+              fill-rule="evenodd"
+              d="M11.95.636l1.414 1.414L8.414 7l4.95 4.95-1.414 1.414L7 8.414l-4.95 4.95L.636 11.95 5.586 7 .636 2.05 2.05.636 7 5.586l4.95-4.95z"
+              opacity=".5"
+            />
+          </svg>
+          <span class="sr-only">Close</span>
+        </button>
+      </header>
+      <hr class="settings__divider" />
+      <section class="settings__content settings__content--main">
+        <fieldset class="settings__fieldset fieldset">
+          <h2 class="settings__legend">Time (minutes)</h2>
+          <div
+            class="settings__input-group-wrapper settings__input-group-wrapper--textfield-group"
+          >
+            <div class="settings__input-wrapper">
+              <label class="settings__field-label" for="pomodoro-time"
+                >pomodoro</label
+              >
+              <div class="numfield">
+                <input
+                  class="numfield__input"
+                  type="text"
+                  name="time"
+                  id="pomodoro-time"
+                />
+                <div class="numfield__spin-wrapper">
+                  <button class="numfield__spin numfield__spin--up button">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="7"
+                    >
+                      <path
+                        fill="none"
+                        stroke="#1E213F"
+                        stroke-opacity=".25"
+                        stroke-width="2"
+                        d="M1 6l6-4 6 4"
+                      />
+                    </svg>
+                    <span class="sr-only">Increment by one</span>
+                  </button>
+                  <button class="numfield__spin numfield__spin--down button">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="7"
+                    >
+                      <path
+                        fill="none"
+                        stroke="#1E213F"
+                        stroke-opacity=".25"
+                        stroke-width="2"
+                        d="M1 1l6 4 6-4"
+                      />
+                    </svg>
+                    <span class="sr-only">Decrement by one</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="settings__input-wrapper">
+              <label class="settings__field-label" for="short-break-time"
+                >short break</label
+              >
+              <div class="numfield">
+                <input
+                  class="numfield__input"
+                  type="text"
+                  name="time"
+                  id="short-break-time"
+                />
+                <div class="numfield__spin-wrapper">
+                  <button class="numfield__spin numfield__spin--up button">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="7"
+                    >
+                      <path
+                        fill="none"
+                        stroke="#1E213F"
+                        stroke-opacity=".25"
+                        stroke-width="2"
+                        d="M1 6l6-4 6 4"
+                      />
+                    </svg>
+                    <span class="sr-only">Increment by one</span>
+                  </button>
+                  <button class="numfield__spin numfield__spin--down button">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="7"
+                    >
+                      <path
+                        fill="none"
+                        stroke="#1E213F"
+                        stroke-opacity=".25"
+                        stroke-width="2"
+                        d="M1 1l6 4 6-4"
+                      />
+                    </svg>
+                    <span class="sr-only">Decrement by one</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="settings__input-wrapper">
+              <label class="settings__field-label" for="long-break-time"
+                >long break</label
+              >
+              <div class="numfield">
+                <input
+                  class="numfield__input"
+                  type="text"
+                  name="time"
+                  id="long-break-time"
+                />
+                <div class="numfield__spin-wrapper">
+                  <button class="numfield__spin numfield__spin--up button">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="7"
+                    >
+                      <path
+                        fill="none"
+                        stroke="#1E213F"
+                        stroke-opacity=".25"
+                        stroke-width="2"
+                        d="M1 6l6-4 6 4"
+                      />
+                    </svg>
+                    <span class="sr-only">Increment by one</span>
+                  </button>
+                  <button class="numfield__spin numfield__spin--down button">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="7"
+                    >
+                      <path
+                        fill="none"
+                        stroke="#1E213F"
+                        stroke-opacity=".25"
+                        stroke-width="2"
+                        d="M1 1l6 4 6-4"
+                      />
+                    </svg>
+                    <span class="sr-only">Decrement by one</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
         <hr class="settings__divider" />
-        <section class="settings__content settings__content--main">
-          <fieldset class="settings__fieldset fieldset">
-            <h2 class="settings__legend">Time (minutes)</h2>
-            <div
-              class="settings__input-group-wrapper settings__input-group-wrapper--textfield-group"
+        <fieldset class="settings__fieldset settings__fieldset--radio fieldset">
+          <h2 class="settings__legend">Font</h2>
+          <div class="settings__input-group-wrapper">
+            <input
+              class="radio"
+              type="radio"
+              name="current-font"
+              id="kumbh-sans"
+              checked
+            />
+            <label
+              class="settings__choice settings__choice--font settings__choice--font--kumbh-sans button"
+              for="kumbh-sans"
+              ><span class="sr-only">Kumbh Sans</span><span>Aa</span>
+            </label>
+            <input
+              class="radio"
+              type="radio"
+              name="current-font"
+              id="roboto-slab"
+            />
+            <label
+              class="settings__choice settings__choice--font settings__choice--font--roboto-slab button"
+              for="roboto-slab"
+              ><span class="sr-only">Roboto Slab</span><span>Aa</span></label
             >
-              <div class="settings__input-wrapper">
-                <label class="settings__field-label" for="pomodoro-time"
-                  >pomodoro</label
-                >
-                <div class="numfield">
-                  <input
-                    class="numfield__input"
-                    type="text"
-                    name="time"
-                    id="pomodoro-time"
-                  />
-                  <div class="numfield__spin-wrapper">
-                    <button class="numfield__spin numfield__spin--up button">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="14"
-                        height="7"
-                      >
-                        <path
-                          fill="none"
-                          stroke="#1E213F"
-                          stroke-opacity=".25"
-                          stroke-width="2"
-                          d="M1 6l6-4 6 4"
-                        />
-                      </svg>
-                      <span class="sr-only">Increment by one</span>
-                    </button>
-                    <button class="numfield__spin numfield__spin--down button">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="14"
-                        height="7"
-                      >
-                        <path
-                          fill="none"
-                          stroke="#1E213F"
-                          stroke-opacity=".25"
-                          stroke-width="2"
-                          d="M1 1l6 4 6-4"
-                        />
-                      </svg>
-                      <span class="sr-only">Decrement by one</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="settings__input-wrapper">
-                <label class="settings__field-label" for="short-break-time"
-                  >short break</label
-                >
-                <div class="numfield">
-                  <input
-                    class="numfield__input"
-                    type="text"
-                    name="time"
-                    id="short-break-time"
-                  />
-                  <div class="numfield__spin-wrapper">
-                    <button class="numfield__spin numfield__spin--up button">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="14"
-                        height="7"
-                      >
-                        <path
-                          fill="none"
-                          stroke="#1E213F"
-                          stroke-opacity=".25"
-                          stroke-width="2"
-                          d="M1 6l6-4 6 4"
-                        />
-                      </svg>
-                      <span class="sr-only">Increment by one</span>
-                    </button>
-                    <button class="numfield__spin numfield__spin--down button">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="14"
-                        height="7"
-                      >
-                        <path
-                          fill="none"
-                          stroke="#1E213F"
-                          stroke-opacity=".25"
-                          stroke-width="2"
-                          d="M1 1l6 4 6-4"
-                        />
-                      </svg>
-                      <span class="sr-only">Decrement by one</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="settings__input-wrapper">
-                <label class="settings__field-label" for="long-break-time"
-                  >long break</label
-                >
-                <div class="numfield">
-                  <input
-                    class="numfield__input"
-                    type="text"
-                    name="time"
-                    id="long-break-time"
-                  />
-                  <div class="numfield__spin-wrapper">
-                    <button class="numfield__spin numfield__spin--up button">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="14"
-                        height="7"
-                      >
-                        <path
-                          fill="none"
-                          stroke="#1E213F"
-                          stroke-opacity=".25"
-                          stroke-width="2"
-                          d="M1 6l6-4 6 4"
-                        />
-                      </svg>
-                      <span class="sr-only">Increment by one</span>
-                    </button>
-                    <button class="numfield__spin numfield__spin--down button">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="14"
-                        height="7"
-                      >
-                        <path
-                          fill="none"
-                          stroke="#1E213F"
-                          stroke-opacity=".25"
-                          stroke-width="2"
-                          d="M1 1l6 4 6-4"
-                        />
-                      </svg>
-                      <span class="sr-only">Decrement by one</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </fieldset>
-          <hr class="settings__divider" />
-          <fieldset
-            class="settings__fieldset settings__fieldset--radio fieldset"
-          >
-            <h2 class="settings__legend">Font</h2>
-            <div class="settings__input-group-wrapper">
-              <input
-                class="radio"
-                type="radio"
-                name="current-font"
-                id="kumbh-sans"
-                checked
-              />
-              <label
-                class="settings__choice settings__choice--font settings__choice--font--kumbh-sans button"
-                for="kumbh-sans"
-                ><span class="sr-only">Kumbh Sans</span><span>Aa</span>
-              </label>
-              <input
-                class="radio"
-                type="radio"
-                name="current-font"
-                id="roboto-slab"
-              />
-              <label
-                class="settings__choice settings__choice--font settings__choice--font--roboto-slab button"
-                for="roboto-slab"
-                ><span class="sr-only">Roboto Slab</span><span>Aa</span></label
-              >
-              <input
-                class="radio"
-                type="radio"
-                name="current-font"
-                id="space-mono"
-              />
-              <label
-                class="settings__choice settings__choice--font settings__choice--font--space-mono button"
-                for="space-mono"
-                ><span class="sr-only">Space Mono</span><span>Aa</span></label
-              >
-            </div>
-          </fieldset>
-          <hr class="settings__divider" />
-          <fieldset
-            class="settings__fieldset settings__fieldset--radio fieldset"
-          >
-            <h2 class="settings__legend">Color</h2>
-            <div class="settings__input-group-wrapper">
-              <input
-                class="radio"
-                type="radio"
-                name="current-accent"
-                id="georgie-peach"
-                checked
-              />
-              <label
-                class="settings__choice settings__choice--color settings__choice--color--gergie-peach button"
-                for="georgie-peach"
-              ><span class="sr-only">Georgie Peach</span></label>
-              <input
-                class="radio"
-                type="radio"
-                name="current-accent"
-                id="robins-egg"
-              />
-              <label
-                class="settings__choice settings__choice--color settings__choice--color--robins-egg button"
-                for="robins-egg"
-              ><span class="sr-only">Robins Egg</span></label>
-              <input
-                class="radio"
-                type="radio"
-                name="current-accent"
-                id="lavender-tea"
-              />
-              <label
-                class="settings__choice settings__choice--color settings__choice--color--lavender-tea button"
-                for="lavender-tea"
-              ><span class="sr-only">Lavender Tea</span></label>
-            </div>
-          </fieldset>
-        </section>
-        <button class="settings__apply button">Apply</button>
-      </form>
+            <input
+              class="radio"
+              type="radio"
+              name="current-font"
+              id="space-mono"
+            />
+            <label
+              class="settings__choice settings__choice--font settings__choice--font--space-mono button"
+              for="space-mono"
+              ><span class="sr-only">Space Mono</span><span>Aa</span></label
+            >
+          </div>
+        </fieldset>
+        <hr class="settings__divider" />
+        <fieldset class="settings__fieldset settings__fieldset--radio fieldset">
+          <h2 class="settings__legend">Color</h2>
+          <div class="settings__input-group-wrapper">
+            <input
+              class="radio"
+              type="radio"
+              name="current-accent"
+              id="georgie-peach"
+              checked
+            />
+            <label
+              class="settings__choice settings__choice--color settings__choice--color--gergie-peach button"
+              for="georgie-peach"
+              ><span class="sr-only">Georgie Peach</span></label
+            >
+            <input
+              class="radio"
+              type="radio"
+              name="current-accent"
+              id="robins-egg"
+            />
+            <label
+              class="settings__choice settings__choice--color settings__choice--color--robins-egg button"
+              for="robins-egg"
+              ><span class="sr-only">Robins Egg</span></label
+            >
+            <input
+              class="radio"
+              type="radio"
+              name="current-accent"
+              id="lavender-tea"
+            />
+            <label
+              class="settings__choice settings__choice--color settings__choice--color--lavender-tea button"
+              for="lavender-tea"
+              ><span class="sr-only">Lavender Tea</span></label
+            >
+          </div>
+        </fieldset>
+      </section>
+      <button class="settings__apply button">Apply</button>
     </dialog>
   </body>
 </html>

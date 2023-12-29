@@ -15,6 +15,8 @@ export default class Controller {
     view.bindPlayPauseTimer(this.playPauseTimer.bind(this));
     view.bindRestartTimer(this.restartTimer.bind(this));
     view.bindSelectedTimerMode(this.setAndRenderMode.bind(this));
+    view.bindOpenSettings(this.openSettings.bind(this));
+    view.bindCloseSettings(this.closeSettings.bind(this));
   }
 
   #renderTimerAndProgressBar() {
@@ -77,5 +79,13 @@ export default class Controller {
   setView() {
     const currentModeIndex = this.#store.getCurrentModeIndex();
     this.#view.renderTimerModeSelection(currentModeIndex);
+  }
+
+  openSettings() {
+    this.#view.showSettingsModal();
+  }
+
+  closeSettings() {
+    this.#view.closeSettingsModal();
   }
 }

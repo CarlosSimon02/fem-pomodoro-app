@@ -50,3 +50,23 @@ export function formatTime(timeInSeconds) {
   ).padStart(2, "0");
   return `${minutes}:${seconds}`;
 }
+
+
+export function handleErrors(fn) {
+  return function (...args) {
+    try {
+      return fn.apply(this, args);
+    } catch (error) {
+      console.error(error); // Log the error for debugging purposes
+
+      // Notify the user of the error
+      notifyUserOfError(error);
+
+      // Report the error to a service or backend
+      reportErrorToService(error);
+
+      // You can choose to throw the error again or handle it silently
+      // throw error;
+    }
+  };
+}

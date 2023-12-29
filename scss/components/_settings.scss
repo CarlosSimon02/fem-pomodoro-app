@@ -9,7 +9,6 @@
   max-height: rem(464);
   padding: 0;
   color: var(--primary-color-2);
-  position: relative;
   overflow: visible;
 
   @include breakpoint-down(demi-medium) {
@@ -18,16 +17,6 @@
 
   &::backdrop {
     background-color: var(--backdrop-color);
-  }
-
-  &__form {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
-    align-items: stretch;
-    align-content: stretch;
-    justify-items: stretch;
   }
 
   &__content {
