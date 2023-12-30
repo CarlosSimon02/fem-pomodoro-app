@@ -8,6 +8,7 @@ export default class View {
   #timerModes;
   #openSettings;
   #closeSettings;
+  #applySettings;
   #settings;
   #fontTypes;
   #themeTypes;
@@ -20,6 +21,7 @@ export default class View {
     this.#timerModes = qsa(".js-timer-mode");
     this.#openSettings = qs(".js-open-settings");
     this.#closeSettings = qs(".js-close-settings");
+    this.#applySettings = qs(".js-apply-settings");
     this.#settings = qs(".js-settings");
     this.#fontTypes = qsa(".js-font-type");
     this.#themeTypes = qsa(".js-theme-type");
@@ -41,6 +43,7 @@ export default class View {
       { name: "timerModes", el: this.#timerModes },
       { name: "openSettings", el: this.#openSettings },
       { name: "closeSettings", el: this.#closeSettings },
+      { name: "applySettings", el: this.#applySettings },
       { name: "settings", el: this.#settings },
       { name: "fontTypes", el: this.#fontTypes },
       { name: "themeTypes", el: this.#themeTypes }
@@ -110,6 +113,14 @@ export default class View {
     document.documentElement.style.setProperty(`--accent-color-1`, `var(--${theme})`);
   }
 
+  getFontChecked() {
+    return qs(`.js-font-type:checked`).value;
+  }
+
+  getThemeChecked() {
+    return qs(`.js-theme-type:checked`).value;
+  }
+
   /**
    * @param {Function} handler Function called on synthetic event.
    */
@@ -166,5 +177,9 @@ export default class View {
 
   bindCloseSettings(handler) {
     on(this.#closeSettings, "click", handler);
+  }
+
+  bindApplySettings(handler) {
+    on(this.#applySettings, "click", handler);
   }
 }

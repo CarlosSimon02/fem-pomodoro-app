@@ -2,25 +2,26 @@ import TimerMode from "./timerMode.js";
 
 export default class Store {
   #timerModes;
+  #uiModes;
   #isTimerRunning;
   #timerIntervalId;
   #currentTimerModeIndex;
-  #previousFont;
-  #previousTheme;
-  #selectedFont;
-  #selectedTheme;
+  #currentUIModeIndex;
+  #font;
+  #theme;
 
   constructor() {
     this.#timerModes = [
       new TimerMode("pomodoro", 25 * 60), // 25 minutes in seconds
       new TimerMode("shortBreak", 5 * 60), // 5 minutes in seconds
-      new TimerMode("longBreak", 15 * 60), // 15 minutes in seconds
+      new TimerMode("longBreak", 15 * 60) // 15 minutes in seconds
     ];
     this.#isTimerRunning = false;
     this.#timerIntervalId = null;
     this.#currentTimerModeIndex = 0;
-    this.#selectedFont = "kumbh-sans";
-    this.#selectedTheme = "robins-egg";
+    this.#currentUIModeIndex = 0;
+    this.#font = "kumbh-sans";
+    this.#theme = "robins-egg";
   }
 
   getIsTimerRunning() {
@@ -31,15 +32,19 @@ export default class Store {
     this.#isTimerRunning = value;
   }
 
-  getCurrentMode() {
+  getCurrentTimerMode() {
     return this.#timerModes[this.#currentTimerModeIndex];
   }
 
-  getCurrentModeIndex() {
+  getCurrentTimerModeIndex() {
     return this.#currentTimerModeIndex;
   }
 
-  setCurrentMode(modeIndex) {
+  getCurrentUIModeIndex() {
+    return this.#currentUIModeIndex;
+  }
+
+  setCurrentTimerMode(modeIndex) {
     this.#currentTimerModeIndex = modeIndex;
   }
 
@@ -52,28 +57,18 @@ export default class Store {
   }
 
   setFont(font) {
-    this.#selectedFont = font;
+    this.#font = font;
   }
 
   setTheme(theme) {
-    this.#selectedTheme = theme;
+    this.#theme = theme;
   }
 
-  getSelectedFont() {
-    return this.#selectedFont;
+  getFont() {
+    return this.#font;
   }
 
-  getSelectedTheme() {
-    return this.#selectedTheme;
-  }
-
-  savePreviousSettings() {
-    this.#previousFont = this.#selectedFont;
-    this.#previousTheme = this.#selectedTheme;
-  }
-
-  revertToPreviousSettings() {
-    this.#selectedFont = this.#previousFont;
-    this.#selectedTheme = this.#previousTheme;
+  getTheme() {
+    return this.#theme;
   }
 }

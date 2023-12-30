@@ -14,16 +14,17 @@ export default class Controller {
 
     view.bindPlayPauseTimer(this.playPauseTimer.bind(this));
     view.bindRestartTimer(this.restartTimer.bind(this));
-    view.bindSelectedTimerMode(this.setAndRenderMode.bind(this));
+    view.bindSelectedTimerMode(this.setAndRenderTimerMode.bind(this));
     view.bindOpenSettings(this.openSettings.bind(this));
     view.bindCloseSettings(this.closeSettings.bind(this));
+    view.bindApplySettings(this.applySettings.bind(this));
     view.bindSelectedFont(this.setFont.bind(this));
     view.bindSelectedTheme(this.setTheme.bind(this));
   }
 
   #renderTimerAndProgressBar() {
-    let timeRemaining = this.#store.getCurrentMode().getTimeRemaining();
-    let targetTime = this.#store.getCurrentMode().getTargetTime();
+    let timeRemaining = this.#store.getCurrentTimerMode().getTimeRemaining();
+    let targetTime = this.#store.getCurrentTimerMode().getTargetTime();
 
     this.#view.updateTimerDisplay(timeRemaining);
     this.#view.updateProgressBar(1 - (timeRemaining / targetTime));
@@ -42,7 +43,7 @@ export default class Controller {
       const currentTime = Date.now();
       const elapsedTime = (currentTime - startTime) / MILLISECONDS_PER_SECOND;
 
-      this.#store.getCurrentMode().decreaseTimeRemainingBy(elapsedTime);
+      this.#store.getCurrentTimerMode().decreaseTimeRemainingBy(elapsedTime);
       this.#renderTimerAndProgressBar();
 
       startTime = currentTime; // Update start time for next interval
@@ -68,20 +69,20 @@ export default class Controller {
 
   restartTimer() {
     this.#pauseTimer();
-    this.#store.getCurrentMode().resetTimeRemaining();
+    this.#store.getCurrentTimerMode().resetTimeRemaining();
     this.#renderTimerAndProgressBar();
   }
 
-  setAndRenderMode(modeIndex) {
+  setAndRenderTimerMode(modeIndex) {
     this.#pauseTimer();
-    this.#store.setCurrentMode(modeIndex);
+    this.#store.setCurrentTimerMode(modeIndex);
     this.#renderTimerAndProgressBar();
   }
 
   setView() {
-    const currentModeIndex = this.#store.getCurrentModeIndex();
-    const font = this.#store.getSelectedFont();
-    const theme = this.#store.getSelectedTheme();
+    const currentModeIndex = this.#store.getCurrentTimerModeIndex();
+    const font = this.#store.getFont();
+    const theme = this.#store.getTheme();
 
     this.#view.renderTimerModeSelection(currentModeIndex);
     this.#view.renderSettings(font,theme);
@@ -92,16 +93,29 @@ export default class Controller {
   }
 
   closeSettings() {
+    const font = this.#store.getFont();
+    const theme = this.#store.getTheme();
+    
+    this.#view.renderSettings(font,theme);
+    this.#view.closeSettingsModal();
+  }
+
+  applySettings() {
+    const font = this.#view.getFontChecked();
+    const theme = this.#view.getThemeChecked();
+
+    this.#store.setFont(font);
+    this.#store.setTheme(theme);
+
+    this.#view.renderSettings(font,theme);
     this.#view.closeSettingsModal();
   }
 
   setFont(font) {
-    this.#store.setFont(font);
     this.#view.setFont(font);
   }
 
   setTheme(theme) {
-    this.#store.setTheme(theme);
     this.#view.setTheme(theme);
   }
 }
