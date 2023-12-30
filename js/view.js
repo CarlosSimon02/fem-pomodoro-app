@@ -9,6 +9,8 @@ export default class View {
   #openSettings;
   #closeSettings;
   #settings;
+  #fontTypes;
+  #themeTypes;
 
   constructor() {
     this.#playPauseTimer = qs(".js-play-pause-timer");
@@ -19,13 +21,14 @@ export default class View {
     this.#openSettings = qs(".js-open-settings");
     this.#closeSettings = qs(".js-close-settings");
     this.#settings = qs(".js-settings");
+    this.#fontTypes = qsa(".js-font-type");
+    this.#themeTypes = qsa(".js-theme-type");
 
     try {
       this.#validateElements();
     } catch (error) {
       console.error(error); // Log the error for debugging purposes
-      notifyUserOfError(error);
-      reportErrorToService(error);
+      alert(error);
     }
   }
 
@@ -39,6 +42,8 @@ export default class View {
       { name: "openSettings", el: this.#openSettings },
       { name: "closeSettings", el: this.#closeSettings },
       { name: "settings", el: this.#settings },
+      { name: "fontTypes", el: this.#fontTypes },
+      { name: "themeTypes", el: this.#themeTypes }
     ];
 
     const nullElements = elements.filter(({ el }) => el === null);
@@ -70,11 +75,39 @@ export default class View {
     this.#progressBar.style.strokeDashoffset = progressBarOffset;
   }
 
-  /**
-   * @param {!boolean} isTimerRunning True if timer is running
-   */
   togglePlayPauseButtonLabel(isTimerRunning) {
     this.#playPauseTimer.innerHTML = isTimerRunning ? "Pause" : "Play";
+  }
+  
+  renderTimerModeSelection(modeIndex) {
+    let radioButton = qs(`.js-timer-mode[value="${modeIndex}"]`);
+    radioButton.checked = true;
+    radioButton.dispatchEvent(new Event("change"));
+  }
+
+  renderSettings(font, theme) {
+    let fontButton = qs(`.js-font-type[value="${font}"]`);
+    let themeButton = qs(`.js-theme-type[value="${theme}"]`);
+    fontButton.checked = true;
+    themeButton.checked = true;
+    fontButton.dispatchEvent(new Event("change"));
+    themeButton.dispatchEvent(new Event("change"));
+  }
+  
+  showSettingsModal() {
+    this.#settings.showModal();
+  }
+
+  closeSettingsModal() {
+    this.#settings.close();
+  }
+
+  setFont(font) {
+    document.documentElement.style.setProperty(`--body-font-family`, `var(--${font})`);
+  }
+
+  setTheme(theme) {
+    document.documentElement.style.setProperty(`--accent-color-1`, `var(--${theme})`);
   }
 
   /**
@@ -102,10 +135,26 @@ export default class View {
     });
   }
 
-  renderTimerModeSelection(modeIndex) {
-    let radioButton = qs(`.js-timer-mode[value="${modeIndex}"]`);
-    radioButton.checked = true;
-    radioButton.dispatchEvent(new Event("change"));
+  /**
+   * @param {Function} handler Function called on synthetic event.
+   */
+  bindSelectedFont(handler) {
+    this.#fontTypes.forEach((timerMode) => {
+      on(timerMode, "change", function () {
+        if (this.checked) handler(this.value);
+      });
+    });
+  }
+
+  /**
+   * @param {Function} handler Function called on synthetic event.
+   */
+  bindSelectedTheme(handler) {
+    this.#themeTypes.forEach((timerMode) => {
+      on(timerMode, "change", function () {
+        if (this.checked) handler(this.value);
+      });
+    });
   }
 
   /**
@@ -117,13 +166,5 @@ export default class View {
 
   bindCloseSettings(handler) {
     on(this.#closeSettings, "click", handler);
-  }
-
-  showSettingsModal() {
-    this.#settings.showModal();
-  }
-
-  closeSettingsModal() {
-    this.#settings.close();
   }
 }

@@ -17,6 +17,8 @@ export default class Controller {
     view.bindSelectedTimerMode(this.setAndRenderMode.bind(this));
     view.bindOpenSettings(this.openSettings.bind(this));
     view.bindCloseSettings(this.closeSettings.bind(this));
+    view.bindSelectedFont(this.setFont.bind(this));
+    view.bindSelectedTheme(this.setTheme.bind(this));
   }
 
   #renderTimerAndProgressBar() {
@@ -78,7 +80,11 @@ export default class Controller {
 
   setView() {
     const currentModeIndex = this.#store.getCurrentModeIndex();
+    const font = this.#store.getSelectedFont();
+    const theme = this.#store.getSelectedTheme();
+
     this.#view.renderTimerModeSelection(currentModeIndex);
+    this.#view.renderSettings(font,theme);
   }
 
   openSettings() {
@@ -87,5 +93,15 @@ export default class Controller {
 
   closeSettings() {
     this.#view.closeSettingsModal();
+  }
+
+  setFont(font) {
+    this.#store.setFont(font);
+    this.#view.setFont(font);
+  }
+
+  setTheme(theme) {
+    this.#store.setTheme(theme);
+    this.#view.setTheme(theme);
   }
 }

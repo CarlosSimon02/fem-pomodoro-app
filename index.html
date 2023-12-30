@@ -84,7 +84,7 @@
     />
     <!-- end fonts -->
   </head>
-  <body>
+  <body class="js-body">
     <noscript>
       <p>
         JavaScript is disabled in your browser. Please enable it to experience
@@ -285,6 +285,7 @@
                   type="text"
                   name="time"
                   id="pomodoro-time"
+                  autocomplete="off"
                 />
                 <div class="numfield__spin-wrapper">
                   <button class="numfield__spin numfield__spin--up button">
@@ -332,6 +333,7 @@
                   type="text"
                   name="time"
                   id="short-break-time"
+                  autocomplete="off"
                 />
                 <div class="numfield__spin-wrapper">
                   <button class="numfield__spin numfield__spin--up button">
@@ -379,6 +381,7 @@
                   type="text"
                   name="time"
                   id="long-break-time"
+                  autocomplete="off"
                 />
                 <div class="numfield__spin-wrapper">
                   <button class="numfield__spin numfield__spin--up button">
@@ -423,11 +426,12 @@
           <h2 class="settings__legend">Font</h2>
           <div class="settings__input-group-wrapper">
             <input
-              class="radio"
+              class="radio js-font-type"
               type="radio"
-              name="current-font"
+              name="font"
               id="kumbh-sans"
-              checked
+              value="kumbh-sans"
+              autocomplete="off"
             />
             <label
               class="settings__choice settings__choice--font settings__choice--font--kumbh-sans button"
@@ -435,10 +439,12 @@
               ><span class="sr-only">Kumbh Sans</span><span>Aa</span>
             </label>
             <input
-              class="radio"
+              class="radio js-font-type"
               type="radio"
-              name="current-font"
+              name="font"
               id="roboto-slab"
+              value="roboto-slab"
+              autocomplete="off"
             />
             <label
               class="settings__choice settings__choice--font settings__choice--font--roboto-slab button"
@@ -446,10 +452,12 @@
               ><span class="sr-only">Roboto Slab</span><span>Aa</span></label
             >
             <input
-              class="radio"
+              class="radio js-font-type"
               type="radio"
-              name="current-font"
+              name="font"
               id="space-mono"
+              value="space-mono"
+              autocomplete="off"
             />
             <label
               class="settings__choice settings__choice--font settings__choice--font--space-mono button"
@@ -463,11 +471,12 @@
           <h2 class="settings__legend">Color</h2>
           <div class="settings__input-group-wrapper">
             <input
-              class="radio"
+              class="radio js-theme-type"
               type="radio"
-              name="current-accent"
+              name="theme"
               id="georgie-peach"
-              checked
+              value="georgie-peach"
+              autocomplete="off"
             />
             <label
               class="settings__choice settings__choice--color settings__choice--color--gergie-peach button"
@@ -475,10 +484,12 @@
               ><span class="sr-only">Georgie Peach</span></label
             >
             <input
-              class="radio"
+              class="radio js-theme-type"
               type="radio"
-              name="current-accent"
+              name="theme"
               id="robins-egg"
+              value="robins-egg"
+              autocomplete="off"
             />
             <label
               class="settings__choice settings__choice--color settings__choice--color--robins-egg button"
@@ -486,10 +497,12 @@
               ><span class="sr-only">Robins Egg</span></label
             >
             <input
-              class="radio"
+              class="radio js-theme-type"
               type="radio"
-              name="current-accent"
+              name="theme"
               id="lavender-tea"
+              value="lavender-tea"
+              autocomplete="off"
             />
             <label
               class="settings__choice settings__choice--color settings__choice--color--lavender-tea button"
