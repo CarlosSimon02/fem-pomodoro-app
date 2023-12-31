@@ -18,7 +18,7 @@ export default class Controller {
     view.bindOpenSettings(this.openSettings.bind(this));
     view.bindCloseSettings(this.closeSettings.bind(this));
     view.bindApplySettings(this.applySettings.bind(this));
-    view.bindProcessFonSelection(this.processFontSelection.bind(this));
+    view.bindProcessFontSelection(this.processFontSelection.bind(this));
     view.bindProcessThemeSelection(this.processThemeSelection.bind(this));
   }
 

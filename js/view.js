@@ -192,7 +192,7 @@ export default class View {
         font: qs(`.js-theme-type:checked`),
         theme: qs(`.js-theme-type:checked`),
       };
-      
+
       handler(settingsValues);
     });
   }
