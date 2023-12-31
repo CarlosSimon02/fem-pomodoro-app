@@ -23,15 +23,15 @@ export default class Controller {
   }
 
   #renderTimerAndProgressBar() {
-    let timeRemaining = this.#store.getCurrentTimerMode().getTimeRemaining();
-    let targetTime = this.#store.getCurrentTimerMode().getTargetTime();
+    let timeRemaining = this.#store.retrieveTimeRemaining();
+    let targetTime = this.#store.retrieveTargetTime();
 
     this.#view.updateTimerDisplay(timeRemaining);
     this.#view.updateProgressBar(1 - (timeRemaining / targetTime));
   }
 
   #setTimerStateAndButtonLabel(isRunning) {
-    this.#store.setIsTimerRunning(isRunning);
+    this.#store.saveIsTimerRunning(isRunning);
     this.#view.togglePlayPauseButtonLabel(isRunning);
   }
 
@@ -43,13 +43,13 @@ export default class Controller {
       const currentTime = Date.now();
       const elapsedTime = (currentTime - startTime) / MILLISECONDS_PER_SECOND;
 
-      this.#store.getCurrentTimerMode().decreaseTimeRemainingBy(elapsedTime);
+      this.#store.decreaseTimeRemainingBy(elapsedTime);
       this.#renderTimerAndProgressBar();
 
       startTime = currentTime; // Update start time for next interval
     }, 10);
 
-    this.#store.setTimerIntervalId(intervalId);
+    this.#store.saveTimerIntervalId(intervalId);
   }
 
   #pauseTimer() {
@@ -58,7 +58,7 @@ export default class Controller {
   }
 
   playPauseTimer() {
-    const isTimerRunning = this.#store.getIsTimerRunning();
+    const isTimerRunning = this.#store.retrieveIsTimerRunning();
 
     if (isTimerRunning) {
       this.#pauseTimer();
@@ -69,22 +69,22 @@ export default class Controller {
 
   restartTimer() {
     this.#pauseTimer();
-    this.#store.getCurrentTimerMode().resetTimeRemaining();
+    this.#store.restartTimeRemaining();
     this.#renderTimerAndProgressBar();
   }
 
   setAndRenderTimerMode(modeIndex) {
     this.#pauseTimer();
-    this.#store.setCurrentTimerMode(modeIndex);
+    this.#store.saveCurrentTimerMode(modeIndex);
     this.#renderTimerAndProgressBar();
   }
 
   setView() {
-    const currentModeIndex = this.#store.getCurrentTimerModeIndex();
+    const currentTimerModeName = this.#store.retrieveCurrentTimerModeName();
     const font = this.#store.getFont();
     const theme = this.#store.getTheme();
 
-    this.#view.renderTimerModeSelection(currentModeIndex);
+    this.#view.renderTimerModeSelection(currentTimerModeName);
     this.#view.renderSettings(font,theme);
   }
 
@@ -93,8 +93,9 @@ export default class Controller {
   }
 
   closeSettings() {
-    const font = this.#store.getFont();
-    const theme = this.#store.getTheme();
+    const settingsValue = this.#view.
+    // const font = this.#store.getFont();
+    // const theme = this.#store.getTheme();
     
     this.#view.renderSettings(font,theme);
     this.#view.closeSettingsModal();

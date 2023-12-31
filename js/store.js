@@ -2,11 +2,9 @@ import TimerMode from "./timerMode.js";
 
 export default class Store {
   #timerModes;
-  #uiModes;
   #isTimerRunning;
   #timerIntervalId;
   #currentTimerModeIndex;
-  #currentUIModeIndex;
   #font;
   #theme;
 
@@ -14,41 +12,52 @@ export default class Store {
     this.#timerModes = [
       new TimerMode("pomodoro", 25 * 60), // 25 minutes in seconds
       new TimerMode("shortBreak", 5 * 60), // 5 minutes in seconds
-      new TimerMode("longBreak", 15 * 60) // 15 minutes in seconds
+      new TimerMode("longBreak", 15 * 60), // 15 minutes in seconds
     ];
     this.#isTimerRunning = false;
     this.#timerIntervalId = null;
     this.#currentTimerModeIndex = 0;
-    this.#currentUIModeIndex = 0;
     this.#font = "kumbh-sans";
     this.#theme = "robins-egg";
   }
 
-  getIsTimerRunning() {
-    return this.#isTimerRunning;
-  }
-
-  setIsTimerRunning(value) {
-    this.#isTimerRunning = value;
-  }
-
-  getCurrentTimerMode() {
+  #retrieveCurrentTimerMode() {
     return this.#timerModes[this.#currentTimerModeIndex];
   }
 
-  getCurrentTimerModeIndex() {
-    return this.#currentTimerModeIndex;
+  retrieveIsTimerRunning() {
+    return this.#isTimerRunning;
   }
 
-  getCurrentUIModeIndex() {
-    return this.#currentUIModeIndex;
+  saveIsTimerRunning(value) {
+    this.#isTimerRunning = value;
   }
 
-  setCurrentTimerMode(modeIndex) {
+  retrieveCurrentTimerModeName() {
+    const currentTimerMode = this.#retrieveCurrentTimerMode();
+    return currentTimerMode.getName();
+  }
+
+  retrieveTargetTime() {
+    const currentTimerMode = this.#retrieveCurrentTimerMode();
+    return currentTimerMode.getTargetTime();
+  }
+
+  retrieveTimeRemaining() {
+    const currentTimerMode = this.#retrieveCurrentTimerMode();
+    return currentTimerMode.getTimeRemaining();
+  }
+
+  decreaseTimeRemainingBy(decrementor) {
+    const currentTimerMode = this.#retrieveCurrentTimerMode();
+    return currentTimerMode.decreaseTimeRemainingBy(decrementor);
+  }
+
+  saveCurrentTimerMode(modeIndex) {
     this.#currentTimerModeIndex = modeIndex;
   }
 
-  setTimerIntervalId(intervalId) {
+  saveTimerIntervalId(intervalId) {
     this.#timerIntervalId = intervalId;
   }
 
@@ -56,19 +65,27 @@ export default class Store {
     clearInterval(this.#timerIntervalId);
   }
 
-  setFont(font) {
+  saveSettings(
+    pomodoroTargetTime,
+    shortBreakTargetTime,
+    longBreakTargetTime,
+    font,
+    theme
+  ) {
+    this.#timerModes[0].setTargetTime();
+    this.#timerModes[1].setTargetTime();
+    this.#timerModes[2].setTargetTime();
     this.#font = font;
+    this.theme = theme;
   }
 
-  setTheme(theme) {
-    this.#theme = theme;
-  }
-
-  getFont() {
-    return this.#font;
-  }
-
-  getTheme() {
-    return this.#theme;
+  retrieveSettings() {
+    return {
+      pomodoroTargetTime: this.#timerModes[0].getTargetTime(),
+      shortBreakTargetTime: this.#timerModes[1].getTargetTime(),
+      longBreakTargetTime: this.#timerModes[2].getTargetTime(),
+      font: this.#font,
+      theme: this.#theme,
+    };
   }
 }

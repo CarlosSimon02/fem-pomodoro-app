@@ -11,14 +11,14 @@ export default class TimerMode {
 
   /**
    * Reduces the time remaining by a specified value and ensures the time does not go below zero.
-   * 
+   *
    * @param {number} decrementor - The value in secnnds by which to decrease the time remaining
    */
   decreaseTimeRemainingBy(decrementor) {
     this.#timeRemaining = Math.max(this.#timeRemaining - decrementor, 0);
   }
 
-  resetTimeRemaining() {
+  restartTimeRemaining() {
     this.#timeRemaining = this.#targetTime;
   }
 
@@ -30,7 +30,15 @@ export default class TimerMode {
     return this.#targetTime;
   }
 
+  setTargetTime(targetTime) {
+    this.#targetTime = targetTime;
+  }
+
   getTimeRemaining() {
     return this.#timeRemaining;
+  }
+
+  setTimeRemaining(timeRemaining) {
+    this.#timeRemaining = timeRemaining;
   }
 }

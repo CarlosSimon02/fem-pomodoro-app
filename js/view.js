@@ -49,7 +49,12 @@ export default class View {
       { name: "themeTypes", el: this.#themeTypes }
     ];
 
-    const nullElements = elements.filter(({ el }) => el === null);
+    const nullElements = elements.filter(({ el }) => {
+      if (Array.isArray(el)) {
+        return el.length === 0;
+      }
+      return el === null;
+    });
 
     if (nullElements.length > 0) {
       const nullElementNames = nullElements.map(({ name }) => name).join(", ");
@@ -81,7 +86,7 @@ export default class View {
   togglePlayPauseButtonLabel(isTimerRunning) {
     this.#playPauseTimer.innerHTML = isTimerRunning ? "Pause" : "Play";
   }
-  
+
   renderTimerModeSelection(modeIndex) {
     let radioButton = qs(`.js-timer-mode[value="${modeIndex}"]`);
     radioButton.checked = true;
@@ -96,7 +101,7 @@ export default class View {
     fontButton.dispatchEvent(new Event("change"));
     themeButton.dispatchEvent(new Event("change"));
   }
-  
+
   showSettingsModal() {
     this.#settings.showModal();
   }
@@ -106,20 +111,33 @@ export default class View {
   }
 
   setFont(font) {
-    document.documentElement.style.setProperty(`--body-font-family`, `var(--${font})`);
+    document.documentElement.style.setProperty(
+      `--body-font-family`,
+      `var(--${font})`
+    );
   }
 
   setTheme(theme) {
-    document.documentElement.style.setProperty(`--accent-color-1`, `var(--${theme})`);
+    document.documentElement.style.setProperty(
+      `--accent-color-1`,
+      `var(--${theme})`
+    );
   }
 
-  getFontChecked() {
-    return qs(`.js-font-type:checked`).value;
+  getSettingsValue() {
+    return {
+      font: qs(`.js-font-type:checked`).value,
+      theme: qs(`.js-theme-type:checked`).value
+    }
   }
 
-  getThemeChecked() {
-    return qs(`.js-theme-type:checked`).value;
-  }
+  // getFontChecked() {
+  //   return qs(`.js-font-type:checked`).value;
+  // }
+
+  // getThemeChecked() {
+  //   return qs(`.js-theme-type:checked`).value;
+  // }
 
   /**
    * @param {Function} handler Function called on synthetic event.
