@@ -81,11 +81,10 @@ export default class Controller {
 
   setView() {
     const currentTimerModeName = this.#store.retrieveCurrentTimerModeName();
-    const font = this.#store.getFont();
-    const theme = this.#store.getTheme();
+    const settingsValues = this.#store.retrieveSettingsValues();
 
     this.#view.renderTimerModeSelection(currentTimerModeName);
-    this.#view.renderSettings(font,theme);
+    this.#view.renderSettings(...settingsValues);
   }
 
   openSettings() {

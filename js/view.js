@@ -10,6 +10,9 @@ export default class View {
   #closeSettings;
   #applySettings;
   #settings;
+  #pomodoroTargetTime;
+  #shortBreakTargetTime;
+  #longBreakTargetTime;
   #fontTypes;
   #themeTypes;
 
@@ -23,6 +26,9 @@ export default class View {
     this.#closeSettings = qs(".js-close-settings");
     this.#applySettings = qs(".js-apply-settings");
     this.#settings = qs(".js-settings");
+    this.#pomodoroTargetTime = qs(".js-pomodoro-target-time");
+    this.#shortBreakTargetTime = qs(".js-short-break-target-time");
+    this.#longBreakTargetTime = qs(".js-long-break-target-time");
     this.#fontTypes = qsa(".js-font-type");
     this.#themeTypes = qsa(".js-theme-type");
 
@@ -45,8 +51,11 @@ export default class View {
       { name: "closeSettings", el: this.#closeSettings },
       { name: "applySettings", el: this.#applySettings },
       { name: "settings", el: this.#settings },
+      { name: "pomodoroTargetTime", el: this.#pomodoroTargetTime },
+      { name: "shortBreakTargetTime", el: this.#shortBreakTargetTime },
+      { name: "longBreakTargetTime", el: this.#longBreakTargetTime },
       { name: "fontTypes", el: this.#fontTypes },
-      { name: "themeTypes", el: this.#themeTypes }
+      { name: "themeTypes", el: this.#themeTypes },
     ];
 
     const nullElements = elements.filter(({ el }) => {
@@ -93,7 +102,13 @@ export default class View {
     radioButton.dispatchEvent(new Event("change"));
   }
 
-  renderSettings(font, theme) {
+  renderSettings(
+    pomodoroTargetTime,
+    shortBreakTargetTime,
+    longBreakTargetTime,
+    font,
+    theme
+  ) {
     let fontButton = qs(`.js-font-type[value="${font}"]`);
     let themeButton = qs(`.js-theme-type[value="${theme}"]`);
     fontButton.checked = true;
@@ -127,8 +142,8 @@ export default class View {
   getSettingsValue() {
     return {
       font: qs(`.js-font-type:checked`).value,
-      theme: qs(`.js-theme-type:checked`).value
-    }
+      theme: qs(`.js-theme-type:checked`).value,
+    };
   }
 
   // getFontChecked() {
