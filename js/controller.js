@@ -36,7 +36,7 @@ export default class Controller {
       const elapsedTime = (currentTime - startTime) / MILLISECONDS_PER_SECOND;
 
       this.#store.decreaseTimeRemainingBy(elapsedTime);
-      this.#view.setTimerandProgressBarValue(
+      this.#view.setTimerAndProgressBarValue(
         this.#store.retrieveTimeRemaining(),
         this.#store.retrieveTargetTime()
       );
@@ -65,7 +65,7 @@ export default class Controller {
   restartTimer() {
     this.#pauseTimer();
     this.#store.restartTimeRemaining();
-    this.#view.setTimerandProgressBarValue(
+    this.#view.setTimerAndProgressBarValue(
       this.#store.retrieveTimeRemaining(),
       this.#store.retrieveTargetTime()
     );
@@ -74,7 +74,7 @@ export default class Controller {
   setAndRenderTimerMode(modeIndex) {
     this.#pauseTimer();
     this.#store.saveCurrentTimerMode(modeIndex);
-    this.#view.setTimerandProgressBarValue(
+    this.#view.setTimerAndProgressBarValue(
       this.#store.retrieveTimeRemaining(),
       this.#store.retrieveTargetTime()
     );
@@ -83,7 +83,7 @@ export default class Controller {
   setView() {
     const currentTimerModeName = this.#store.retrieveCurrentTimerModeName();
     const settingsValues = this.#store.retrieveSettingsValues();
-
+    console.log(this);
     this.#view.checkTimerModeButton(currentTimerModeName);
     this.#view.setSettingsValues(settingsValues);
   }
@@ -93,20 +93,16 @@ export default class Controller {
   }
 
   closeSettings() {
-    const settingsValue = this.#store.retrieveSettingsValues();
+    const settings = this.#store.retrieveSettingsValues();
 
-    this.#view.renderSettings(settingsValue);
+    this.#view.setSettingsValues(settings);
     this.#view.closeSettingsModal();
   }
 
-  applySettings() {
-    const font = this.#view.getFontChecked();
-    const theme = this.#view.getThemeChecked();
+  applySettings(settings) {
+    this.#store.saveSettingsValues(settings);
 
-    this.#store.setFont(font);
-    this.#store.setTheme(theme);
-
-    this.#view.renderSettings(font, theme);
+    this.#view.setSettingsValues(settings);
     this.#view.closeSettingsModal();
   }
 

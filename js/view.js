@@ -84,8 +84,8 @@ export default class View {
     this.#playPauseTimer.innerHTML = isTimerRunning ? "Pause" : "Play";
   }
 
-  checkTimerModeButton(modeName) {
-    let radioButton = qs(`.js-timer-mode[value="${modeName}"]`);
+  checkTimerModeButton(timerModeName) {
+    let radioButton = qs(`.js-timer-mode[value="${timerModeName}"]`);
     radioButton.checked = true;
     radioButton.dispatchEvent(new Event("change"));
   }
@@ -184,15 +184,18 @@ export default class View {
   }
 
   bindApplySettings(handler) {
-    on(this.#applySettings, "click", function () {
-      const settingsValues = {
-        pomodoroTargetTime: this.#pomodoroTargetTime.value,
-        shortBreakTargetTime: this.#shortBreakTargetTime.value,
-        longBreakTargetTime: this.#longBreakTargetTime.value,
-        font: qs(`.js-theme-type:checked`),
-        theme: qs(`.js-theme-type:checked`),
-      };
+    const fontValue = qs(`input[type="radio"][name="font"]:checked`).value;
+    const themeValue = qs(`input[type="radio"][name="theme"]:checked`).value;
 
+    const settingsValues = {
+      pomodoroTargetTime: this.#pomodoroTargetTime.value,
+      shortBreakTargetTime: this.#shortBreakTargetTime.value,
+      longBreakTargetTime: this.#longBreakTargetTime.value,
+      font: fontValue,
+      theme: themeValue,
+    };
+
+    on(this.#applySettings, "click", function () {
       handler(settingsValues);
     });
   }

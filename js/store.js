@@ -53,8 +53,16 @@ export default class Store {
     return currentTimerMode.decreaseTimeRemainingBy(decrementor);
   }
 
-  saveCurrentTimerMode(modeIndex) {
-    this.#currentTimerModeIndex = modeIndex;
+  restartTimeRemaining() {
+    const currentTimerMode = this.#retrieveCurrentTimerMode();
+    return currentTimerMode.restartTimeRemaining();
+  }
+
+  saveCurrentTimerMode(timerModeName) {
+    const index = this.#timerModes.findIndex(
+      (timerMode) => timerMode.getName() === timerModeName
+    );
+    this.#currentTimerModeIndex = index;
   }
 
   saveTimerIntervalId(intervalId) {
