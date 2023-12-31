@@ -65,18 +65,12 @@ export default class Store {
     clearInterval(this.#timerIntervalId);
   }
 
-  saveSettingsValues(
-    pomodoroTargetTime,
-    shortBreakTargetTime,
-    longBreakTargetTime,
-    font,
-    theme
-  ) {
-    this.#timerModes[0].setTargetTime(pomodoroTargetTime);
-    this.#timerModes[1].setTargetTime(shortBreakTargetTime);
-    this.#timerModes[2].setTargetTime(longBreakTargetTime);
-    this.#font = font;
-    this.theme = theme;
+  saveSettingsValues(settings) {
+    this.#timerModes[0].setTargetTime(settings.pomodoroTargetTime);
+    this.#timerModes[1].setTargetTime(settings.shortBreakTargetTime);
+    this.#timerModes[2].setTargetTime(settings.longBreakTargetTime);
+    this.#font = settings.font;
+    this.theme = settings.theme;
   }
 
   retrieveSettingsValues() {

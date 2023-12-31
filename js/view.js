@@ -73,22 +73,10 @@ export default class View {
     }
   }
 
-  /**
-   * Updates the timer display with the provided time.
-   *
-   * @param {number} timeInSeconds The time to be displayed in seconds
-   */
-  updateTimerDisplay(timeInSeconds) {
-    this.#timer.innerHTML = formatTime(timeInSeconds);
-  }
-
-  /**
-   * Update the progress bar with a value between 0 and 1.
-   *
-   * @param {number} value The value representing progress (0 to 1)
-   */
-  updateProgressBar(value) {
-    const progressBarOffset = value * PROGRESS_BAR_CIRC;
+  setTimerAndProgressBarValue(timeRemaining, targetTime) {
+    const timeRemainingPercentage = 1 - timeRemaining / targetTime;
+    const progressBarOffset = timeRemainingPercentage * PROGRESS_BAR_CIRC;
+    this.#timer.innerHTML = formatTime(timeRemaining);
     this.#progressBar.style.strokeDashoffset = progressBarOffset;
   }
 
@@ -96,21 +84,19 @@ export default class View {
     this.#playPauseTimer.innerHTML = isTimerRunning ? "Pause" : "Play";
   }
 
-  renderTimerModeSelection(modeIndex) {
-    let radioButton = qs(`.js-timer-mode[value="${modeIndex}"]`);
+  checkTimerModeButton(modeName) {
+    let radioButton = qs(`.js-timer-mode[value="${modeName}"]`);
     radioButton.checked = true;
     radioButton.dispatchEvent(new Event("change"));
   }
 
-  renderSettings(
-    pomodoroTargetTime,
-    shortBreakTargetTime,
-    longBreakTargetTime,
-    font,
-    theme
-  ) {
-    let fontButton = qs(`.js-font-type[value="${font}"]`);
-    let themeButton = qs(`.js-theme-type[value="${theme}"]`);
+  setSettingsValues(settings) {
+    this.#pomodoroTargetTime.value = settings.pomodoroTargetTime;
+    this.#shortBreakTargetTime.value = settings.shortBreakTargetTime;
+    this.#longBreakTargetTime.value = settings.longBreakTargetTime;
+
+    let fontButton = qs(`.js-font-type[value="${settings.font}"]`);
+    let themeButton = qs(`.js-theme-type[value="${settings.theme}"]`);
     fontButton.checked = true;
     themeButton.checked = true;
     fontButton.dispatchEvent(new Event("change"));
@@ -138,21 +124,6 @@ export default class View {
       `var(--${theme})`
     );
   }
-
-  getSettingsValue() {
-    return {
-      font: qs(`.js-font-type:checked`).value,
-      theme: qs(`.js-theme-type:checked`).value,
-    };
-  }
-
-  // getFontChecked() {
-  //   return qs(`.js-font-type:checked`).value;
-  // }
-
-  // getThemeChecked() {
-  //   return qs(`.js-theme-type:checked`).value;
-  // }
 
   /**
    * @param {Function} handler Function called on synthetic event.
@@ -182,7 +153,7 @@ export default class View {
   /**
    * @param {Function} handler Function called on synthetic event.
    */
-  bindSelectedFont(handler) {
+  bindProcessFontSelection(handler) {
     this.#fontTypes.forEach((timerMode) => {
       on(timerMode, "change", function () {
         if (this.checked) handler(this.value);
@@ -193,7 +164,7 @@ export default class View {
   /**
    * @param {Function} handler Function called on synthetic event.
    */
-  bindSelectedTheme(handler) {
+  bindProcessThemeSelection(handler) {
     this.#themeTypes.forEach((timerMode) => {
       on(timerMode, "change", function () {
         if (this.checked) handler(this.value);
@@ -213,6 +184,16 @@ export default class View {
   }
 
   bindApplySettings(handler) {
-    on(this.#applySettings, "click", handler);
+    on(this.#applySettings, "click", function () {
+      const settingsValues = {
+        pomodoroTargetTime: this.#pomodoroTargetTime.value,
+        shortBreakTargetTime: this.#shortBreakTargetTime.value,
+        longBreakTargetTime: this.#longBreakTargetTime.value,
+        font: qs(`.js-theme-type:checked`),
+        theme: qs(`.js-theme-type:checked`),
+      };
+      
+      handler(settingsValues);
+    });
   }
 }
