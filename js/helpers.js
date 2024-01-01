@@ -70,3 +70,12 @@ export function handleErrors(fn) {
     }
   };
 }
+
+export function toSeconds(timeInMinutes) {
+  return timeInMinutes * SECONDS_PER_MINUTE;
+}
+
+export function toMinutes(timeInSeconds) {
+  return timeInSeconds / SECONDS_PER_MINUTE;
+}
+

@@ -1,4 +1,12 @@
-import { PROGRESS_BAR_CIRC, qs, qsa, on, formatTime } from "./helpers.js";
+import {
+  PROGRESS_BAR_CIRC,
+  qs,
+  qsa,
+  on,
+  formatTime,
+  toMinutes,
+  toSeconds,
+} from "./helpers.js";
 
 export default class View {
   #playPauseTimer;
@@ -91,9 +99,9 @@ export default class View {
   }
 
   setSettingsValues(settings) {
-    this.#pomodoroTargetTime.value = settings.pomodoroTargetTime;
-    this.#shortBreakTargetTime.value = settings.shortBreakTargetTime;
-    this.#longBreakTargetTime.value = settings.longBreakTargetTime;
+    this.#pomodoroTargetTime.value = toMinutes(settings.pomodoroTargetTime);
+    this.#shortBreakTargetTime.value = toMinutes(settings.shortBreakTargetTime);
+    this.#longBreakTargetTime.value = toMinutes(settings.longBreakTargetTime);
 
     let fontButton = qs(`.js-font-type[value="${settings.font}"]`);
     let themeButton = qs(`.js-theme-type[value="${settings.theme}"]`);
@@ -101,6 +109,16 @@ export default class View {
     themeButton.checked = true;
     fontButton.dispatchEvent(new Event("change"));
     themeButton.dispatchEvent(new Event("change"));
+  }
+
+  getSettingsValues() {
+    return {
+      pomodoroTargetTime: toSeconds(this.#pomodoroTargetTime.value),
+      shortBreakTargetTime: toSeconds(this.#shortBreakTargetTime.value),
+      longBreakTargetTime: toSeconds(this.#shortBreakTargetTime.value),
+      font: qs(`.js-font-type:checked`).value,
+      theme: qs(`.js-theme-type:checked`).value,
+    };
   }
 
   showSettingsModal() {
@@ -184,19 +202,6 @@ export default class View {
   }
 
   bindApplySettings(handler) {
-    const fontValue = qs(`input[type="radio"][name="font"]:checked`).value;
-    const themeValue = qs(`input[type="radio"][name="theme"]:checked`).value;
-
-    const settingsValues = {
-      pomodoroTargetTime: this.#pomodoroTargetTime.value,
-      shortBreakTargetTime: this.#shortBreakTargetTime.value,
-      longBreakTargetTime: this.#longBreakTargetTime.value,
-      font: fontValue,
-      theme: themeValue,
-    };
-
-    on(this.#applySettings, "click", function () {
-      handler(settingsValues);
-    });
+    on(this.#applySettings, "click", handler);
   }
 }

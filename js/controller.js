@@ -83,7 +83,7 @@ export default class Controller {
   setView() {
     const currentTimerModeName = this.#store.retrieveCurrentTimerModeName();
     const settingsValues = this.#store.retrieveSettingsValues();
-    console.log(this);
+
     this.#view.checkTimerModeButton(currentTimerModeName);
     this.#view.setSettingsValues(settingsValues);
   }
@@ -94,16 +94,19 @@ export default class Controller {
 
   closeSettings() {
     const settings = this.#store.retrieveSettingsValues();
-
     this.#view.setSettingsValues(settings);
     this.#view.closeSettingsModal();
+    this.#view.setTimerAndProgressBarValue(
+      this.#store.retrieveTimeRemaining(),
+      this.#store.retrieveTargetTime()
+    );
   }
 
-  applySettings(settings) {
-    this.#store.saveSettingsValues(settings);
-
-    this.#view.setSettingsValues(settings);
+  applySettings() {
+    const settingsValues = this.#view.getSettingsValues();
+    this.#store.saveSettingsValues(settingsValues);
     this.#view.closeSettingsModal();
+    this.restartTimer();
   }
 
   processFontSelection(font) {
