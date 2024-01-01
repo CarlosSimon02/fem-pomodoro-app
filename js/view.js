@@ -23,6 +23,9 @@ export default class View {
   #longBreakTargetTime;
   #fontTypes;
   #themeTypes;
+  #numInputs;
+  #inputIncrementors;
+  #inputDecrementors;
 
   constructor() {
     this.#playPauseTimer = qs(".js-play-pause-timer");
@@ -39,6 +42,9 @@ export default class View {
     this.#longBreakTargetTime = qs(".js-long-break-target-time");
     this.#fontTypes = qsa(".js-font-type");
     this.#themeTypes = qsa(".js-theme-type");
+    this.#numInputs = qsa(".js-number-input");
+    this.#inputIncrementors = qsa(".js-num-input-incrementor");
+    this.#inputDecrementors = qsa(".js-num-input-decrementor");
 
     try {
       this.#validateElements();
@@ -64,6 +70,9 @@ export default class View {
       { name: "longBreakTargetTime", el: this.#longBreakTargetTime },
       { name: "fontTypes", el: this.#fontTypes },
       { name: "themeTypes", el: this.#themeTypes },
+      { name: "numInputs", el: this.#numInputs },
+      { name: "inputIncrementors", el: this.#inputIncrementors },
+      { name: "inputDecrementors", el: this.#inputDecrementors },
     ];
 
     const nullElements = elements.filter(({ el }) => {
@@ -143,6 +152,10 @@ export default class View {
     );
   }
 
+  setNumInputValue(numInput,value) {
+    numInput.value = value;
+  }
+
   /**
    * @param {Function} handler Function called on synthetic event.
    */
@@ -203,5 +216,26 @@ export default class View {
 
   bindApplySettings(handler) {
     on(this.#applySettings, "click", handler);
+  }
+
+  bindIncrementNumInput(handler) {
+    this.#inputIncrementors.forEach((inputIncrementor, index) => {
+      const numInput = this.#numInputs[index];
+
+      on(inputIncrementor, "click", function () {
+        console.log("run");
+        handler(numInput);
+      });
+    });
+  }
+
+  bindDecrementNumInput(handler) {
+    this.#inputDecrementors.forEach((inputDecrementor, index) => {
+      const numInput = this.#numInputs[index];
+
+      on(inputDecrementor, "click", function () {
+        handler(numInput);
+      });
+    });
   }
 }

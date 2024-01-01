@@ -20,6 +20,8 @@ export default class Controller {
     view.bindApplySettings(this.applySettings.bind(this));
     view.bindProcessFontSelection(this.processFontSelection.bind(this));
     view.bindProcessThemeSelection(this.processThemeSelection.bind(this));
+    view.bindIncrementNumInput(this.incrementNumInput.bind(this));
+    view.bindDecrementNumInput(this.decrementNumInput.bind(this));
   }
 
   #setIsTimerRunning(isRunning) {
@@ -115,5 +117,23 @@ export default class Controller {
 
   processThemeSelection(theme) {
     this.#view.setTheme(theme);
+  }
+
+  incrementNumInput(numInput) {
+    let value = parseFloat(numInput.value);
+
+    if(!isNaN(value) && isFinite(value)) {
+      value++;
+      this.#view.setNumInputValue(numInput,value);
+    }
+  }
+
+  decrementNumInput(numInput) {
+    let value = parseFloat(numInput.value);
+
+    if(!isNaN(value) && isFinite(value)) {
+      value--;
+      this.#view.setNumInputValue(numInput,value);
+    }
   }
 }
