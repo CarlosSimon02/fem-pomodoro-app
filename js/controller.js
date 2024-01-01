@@ -139,14 +139,14 @@ export default class Controller {
   }
 
   validateNumInput(numInput, event) {
-    const inputFilter = function (value) {
-      return /^\d*$/.test(value) && (value === "" || parseInt(value) <= 500);
-    };
+    const isValidInput =
+      /^\d*$/.test(numInput.value) &&
+      ((parseInt(numInput.value) >= 1 && parseInt(numInput.value) <= 99) ||
+      numInput.value === "");
 
-    if (inputFilter(numInput.value)) {
+    if (isValidInput) {
       // Accepted value
-      if (["keydown", "mousedown", "focusout"].indexOf(event.type) >= 0) {
-        numInput.classList.remove("input-error");
+      if (["keydown", "mousedown", "focusout"].includes(event.type)) {
         numInput.setCustomValidity("");
       }
       numInput.oldValue = numInput.value;
@@ -154,8 +154,7 @@ export default class Controller {
       numInput.oldSelectionEnd = numInput.selectionEnd;
     } else if (numInput.hasOwnProperty("oldValue")) {
       // Rejected value - restore the previous one
-      numInput.classList.add("input-error");
-      numInput.setCustomValidity("Hello");
+      numInput.setCustomValidity("Please enter a number between 1 and 99 inclusive");
       numInput.reportValidity();
       numInput.value = numInput.oldValue;
       numInput.setSelectionRange(

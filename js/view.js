@@ -250,6 +250,7 @@ export default class View {
       "contextmenu",
       "drop",
       "focusout",
+      "change"
     ];
 
     events.forEach((event) => {
