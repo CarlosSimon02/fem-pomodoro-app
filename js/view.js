@@ -152,8 +152,9 @@ export default class View {
     );
   }
 
-  setNumInputValue(numInput,value) {
+  setNumInputValue(numInput, value) {
     numInput.value = value;
+    numInput.dispatchEvent(new Event("change"));
   }
 
   /**
@@ -223,7 +224,6 @@ export default class View {
       const numInput = this.#numInputs[index];
 
       on(inputIncrementor, "click", function () {
-        console.log("run");
         handler(numInput);
       });
     });
@@ -237,5 +237,27 @@ export default class View {
         handler(numInput);
       });
     });
+  }
+
+  bindValidateNumInput(handler) {
+    const events = [
+      "input",
+      "keydown",
+      "keyup",
+      "mousedown",
+      "mouseup",
+      "select",
+      "contextmenu",
+      "drop",
+      "focusout",
+    ];
+
+    events.forEach((event) => {
+      this.#numInputs.forEach((numInput) => {
+        on(numInput, event, function (event) {
+          handler(numInput, event);
+        });
+      });
+    })
   }
 }

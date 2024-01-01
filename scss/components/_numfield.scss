@@ -21,6 +21,10 @@
         padding-inline-start: rem(16);
         padding-inline-end: rem(46);
         font-size: rem(14);
+
+        &::placeholder {
+            opacity: 0.3;
+        }
     }
 
     &__spin-wrapper {

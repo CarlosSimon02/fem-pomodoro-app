@@ -22,6 +22,7 @@ export default class Controller {
     view.bindProcessThemeSelection(this.processThemeSelection.bind(this));
     view.bindIncrementNumInput(this.incrementNumInput.bind(this));
     view.bindDecrementNumInput(this.decrementNumInput.bind(this));
+    view.bindValidateNumInput(this.validateNumInput.bind(this));
   }
 
   #setIsTimerRunning(isRunning) {
@@ -120,20 +121,50 @@ export default class Controller {
   }
 
   incrementNumInput(numInput) {
-    let value = parseFloat(numInput.value);
+    let value = parseFloat(numInput.value === "" ? "0" : numInput.value);
 
-    if(!isNaN(value) && isFinite(value)) {
+    if (!isNaN(value) && isFinite(value)) {
       value++;
-      this.#view.setNumInputValue(numInput,value);
+      this.#view.setNumInputValue(numInput, value);
     }
   }
 
   decrementNumInput(numInput) {
-    let value = parseFloat(numInput.value);
+    let value = parseFloat(numInput.value === "" ? "0" : numInput.value);
 
-    if(!isNaN(value) && isFinite(value)) {
+    if (!isNaN(value) && isFinite(value)) {
       value--;
-      this.#view.setNumInputValue(numInput,value);
+      this.#view.setNumInputValue(numInput, value);
+    }
+  }
+
+  validateNumInput(numInput, event) {
+    const inputFilter = function (value) {
+      return /^\d*$/.test(value) && (value === "" || parseInt(value) <= 500);
+    };
+
+    if (inputFilter(numInput.value)) {
+      // Accepted value
+      if (["keydown", "mousedown", "focusout"].indexOf(event.type) >= 0) {
+        numInput.classList.remove("input-error");
+        numInput.setCustomValidity("");
+      }
+      numInput.oldValue = numInput.value;
+      numInput.oldSelectionStart = numInput.selectionStart;
+      numInput.oldSelectionEnd = numInput.selectionEnd;
+    } else if (numInput.hasOwnProperty("oldValue")) {
+      // Rejected value - restore the previous one
+      numInput.classList.add("input-error");
+      numInput.setCustomValidity("Hello");
+      numInput.reportValidity();
+      numInput.value = numInput.oldValue;
+      numInput.setSelectionRange(
+        numInput.oldSelectionStart,
+        numInput.oldSelectionEnd
+      );
+    } else {
+      // Rejected value - nothing to restore
+      numInput.value = "";
     }
   }
 }
