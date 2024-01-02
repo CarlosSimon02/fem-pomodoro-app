@@ -1,14 +1,17 @@
 .attribution {
-    color: var(--clr-fg-3);
+    color: var(--primary-color-1);
     font-size: clamp(0.875rem, 0.889vw + 0.611rem, 1rem);
     width: 100%;
-    background-color: var(--clr-bg-content);
+    background-color: var(--accent-color-1);
     padding: .7rem;
     text-align: center;
     position: fixed;
     bottom: -5rem;
     left: 0;
     transition: bottom .8s ease;
-    box-shadow: var(--bx-shadow-main);
     visibility: hidden;
+
+    & a {
+        color: inherit;
+    }
   }

@@ -23,6 +23,7 @@ export default class Controller {
     view.bindIncrementNumInput(this.incrementNumInput.bind(this));
     view.bindDecrementNumInput(this.decrementNumInput.bind(this));
     view.bindValidateNumInput(this.validateNumInput.bind(this));
+    view.bindOpenAttribution(this.openAttribution.bind(this));
   }
 
   #setIsTimerRunning(isRunning) {
@@ -107,9 +108,9 @@ export default class Controller {
   applySettings(settingsInputs) {
     const isSettingsInputsValid = isInputsValid(settingsInputs);
 
-    if(isSettingsInputsValid) {
+    if (isSettingsInputsValid) {
       const settingsValues = this.#view.getSettingsValues();
-    
+
       this.#pauseTimer();
       this.#store.saveSettingsValues(settingsValues);
       this.#view.setTimerAndProgressBarValue(
@@ -175,5 +176,20 @@ export default class Controller {
       // Rejected value - nothing to restore
       numInput.value = "";
     }
+  }
+
+  hideAttribution(attribution, openAttribution) {
+    attribution.style.bottom = "-5rem";
+    openAttribution.disabled = false;
+    setTimeout(() => {
+      attribution.style.visibility = "hidden";
+    }, 800);
+  }
+
+  openAttribution(attribution, openAttribution) {
+    attribution.style.visibility = "visible";
+    attribution.style.bottom = 0;
+    openAttribution.disabled = true;
+    setTimeout(() => this.hideAttribution(attribution, openAttribution), 3000);
   }
 }

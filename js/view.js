@@ -26,6 +26,8 @@ export default class View {
   #numInputs;
   #inputIncrementors;
   #inputDecrementors;
+  #openAttribution;
+  #attribution;
 
   constructor() {
     this.#playPauseTimer = qs(".js-play-pause-timer");
@@ -45,6 +47,8 @@ export default class View {
     this.#numInputs = qsa(".js-number-input");
     this.#inputIncrementors = qsa(".js-num-input-incrementor");
     this.#inputDecrementors = qsa(".js-num-input-decrementor");
+    this.#openAttribution = qs(".js-open-attribution");
+    this.#attribution = qs(".js-attribution");
 
     try {
       this.#validateElements();
@@ -73,6 +77,8 @@ export default class View {
       { name: "numInputs", el: this.#numInputs },
       { name: "inputIncrementors", el: this.#inputIncrementors },
       { name: "inputDecrementors", el: this.#inputDecrementors },
+      { name: "openAttribution", el: this.#openAttribution },
+      { name: "attribution", el: this.#attribution },
     ];
 
     const nullElements = elements.filter(({ el }) => {
@@ -222,8 +228,8 @@ export default class View {
   bindApplySettings(handler) {
     const settingsInputs = qsa(".js-settings input");
 
-    on(this.#applySettings, "click", function() {
-      handler(settingsInputs);      
+    on(this.#applySettings, "click", function () {
+      handler(settingsInputs);
     });
   }
 
@@ -267,6 +273,14 @@ export default class View {
           handler(numInput, event);
         });
       });
+    });
+  }
+
+  bindOpenAttribution(handler) {
+    const attribution = this.#attribution;
+    
+    on(this.#openAttribution, "click", function () {
+      handler(attribution, this);
     });
   }
 }
