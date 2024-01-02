@@ -249,276 +249,297 @@
       </div>
     </main>
     <dialog class="settings js-settings">
-      <header class="settings__content settings__content--header">
-        <h1 class="settings__title">Settings</h1>
-        <button class="settings__close button button--link js-close-settings">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 14 14"
-            hidden="true"
-            focusable="false"
-          >
-            <path
-              fill="#1E213F"
-              fill-rule="evenodd"
-              d="M11.95.636l1.414 1.414L8.414 7l4.95 4.95-1.414 1.414L7 8.414l-4.95 4.95L.636 11.95 5.586 7 .636 2.05 2.05.636 7 5.586l4.95-4.95z"
-              opacity=".5"
-            />
-          </svg>
-          <span class="sr-only">Close</span>
-        </button>
-      </header>
-      <hr class="settings__divider" />
-      <section class="settings__content settings__content--main">
-        <fieldset class="settings__fieldset fieldset">
-          <h2 class="settings__legend">Time (minutes)</h2>
-          <div
-            class="settings__input-group-wrapper settings__input-group-wrapper--textfield-group"
-          >
-            <div class="settings__input-wrapper">
-              <label class="settings__field-label" for="pomodoro-time"
-                >pomodoro</label
-              >
-              <div class="numfield">
-                <input
-                  class="numfield__input js-pomodoro-target-time js-number-input"
-                  type="text"
-                  name="time"
-                  id="pomodoro-time"
-                  autocomplete="off"
-                  inputmode="numeric"
-                  placeholder="00"
-                />
-                <div class="numfield__spin-wrapper">
-                  <button class="numfield__spin numfield__spin--up button js-num-input-incrementor">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="7"
-                    >
-                      <path
-                        fill="none"
-                        stroke="#1E213F"
-                        stroke-opacity=".25"
-                        stroke-width="2"
-                        d="M1 6l6-4 6 4"
-                      />
-                    </svg>
-                    <span class="sr-only">Increment by one</span>
-                  </button>
-                  <button class="numfield__spin numfield__spin--down button js-num-input-decrementor">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="7"
-                    >
-                      <path
-                        fill="none"
-                        stroke="#1E213F"
-                        stroke-opacity=".25"
-                        stroke-width="2"
-                        d="M1 1l6 4 6-4"
-                      />
-                    </svg>
-                    <span class="sr-only">Decrement by one</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="settings__input-wrapper">
-              <label class="settings__field-label" for="short-break-time"
-                >short break</label
-              >
-              <div class="numfield">
-                <input
-                  class="numfield__input js-short-break-target-time js-number-input"
-                  type="text"
-                  name="time"
-                  id="short-break-time"
-                  autocomplete="off"
-                  inputmode="numeric"
-                  placeholder="00"
-                />
-                <div class="numfield__spin-wrapper">
-                  <button class="numfield__spin numfield__spin--up button js-num-input-incrementor">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="7"
-                    >
-                      <path
-                        fill="none"
-                        stroke="#1E213F"
-                        stroke-opacity=".25"
-                        stroke-width="2"
-                        d="M1 6l6-4 6 4"
-                      />
-                    </svg>
-                    <span class="sr-only">Increment by one</span>
-                  </button>
-                  <button class="numfield__spin numfield__spin--down button js-num-input-decrementor">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="7"
-                    >
-                      <path
-                        fill="none"
-                        stroke="#1E213F"
-                        stroke-opacity=".25"
-                        stroke-width="2"
-                        d="M1 1l6 4 6-4"
-                      />
-                    </svg>
-                    <span class="sr-only">Decrement by one</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="settings__input-wrapper">
-              <label class="settings__field-label" for="long-break-time"
-                >long break</label
-              >
-              <div class="numfield">
-                <input
-                  class="numfield__input js-long-break-target-time js-number-input"
-                  type="text"
-                  name="time"
-                  id="long-break-time"
-                  autocomplete="off"
-                  inputmode="numeric"
-                  placeholder="00"
-                />
-                <div class="numfield__spin-wrapper">
-                  <button class="numfield__spin numfield__spin--up button js-num-input-incrementor">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="7"
-                    >
-                      <path
-                        fill="none"
-                        stroke="#1E213F"
-                        stroke-opacity=".25"
-                        stroke-width="2"
-                        d="M1 6l6-4 6 4"
-                      />
-                    </svg>
-                    <span class="sr-only">Increment by one</span>
-                  </button>
-                  <button class="numfield__spin numfield__spin--down button js-num-input-decrementor">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="7"
-                    >
-                      <path
-                        fill="none"
-                        stroke="#1E213F"
-                        stroke-opacity=".25"
-                        stroke-width="2"
-                        d="M1 1l6 4 6-4"
-                      />
-                    </svg>
-                    <span class="sr-only">Decrement by one</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </fieldset>
+      <div class="settings__content-wrapper">
+        <header class="settings__content settings__content--header">
+          <h1 class="settings__title">Settings</h1>
+          <button class="settings__close button button--link js-close-settings">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 14 14"
+              hidden="true"
+              focusable="false"
+            >
+              <path
+                fill="#1E213F"
+                fill-rule="evenodd"
+                d="M11.95.636l1.414 1.414L8.414 7l4.95 4.95-1.414 1.414L7 8.414l-4.95 4.95L.636 11.95 5.586 7 .636 2.05 2.05.636 7 5.586l4.95-4.95z"
+                opacity=".5"
+              />
+            </svg>
+            <span class="sr-only">Close</span>
+          </button>
+        </header>
         <hr class="settings__divider" />
-        <fieldset class="settings__fieldset settings__fieldset--radio fieldset">
-          <h2 class="settings__legend">Font</h2>
-          <div class="settings__input-group-wrapper">
-            <input
-              class="radio js-font-type"
-              type="radio"
-              name="font"
-              id="kumbh-sans"
-              value="kumbh-sans"
-              autocomplete="off"
-            />
-            <label
-              class="settings__choice settings__choice--font settings__choice--font--kumbh-sans button"
-              for="kumbh-sans"
-              ><span class="sr-only">Kumbh Sans</span><span>Aa</span>
-            </label>
-            <input
-              class="radio js-font-type"
-              type="radio"
-              name="font"
-              id="roboto-slab"
-              value="roboto-slab"
-              autocomplete="off"
-            />
-            <label
-              class="settings__choice settings__choice--font settings__choice--font--roboto-slab button"
-              for="roboto-slab"
-              ><span class="sr-only">Roboto Slab</span><span>Aa</span></label
+        <section class="settings__content settings__content--main">
+          <fieldset class="settings__fieldset fieldset">
+            <h2 class="settings__legend">Time (minutes)</h2>
+            <div
+              class="settings__input-group-wrapper settings__input-group-wrapper--textfield-group"
             >
-            <input
-              class="radio js-font-type"
-              type="radio"
-              name="font"
-              id="space-mono"
-              value="space-mono"
-              autocomplete="off"
-            />
-            <label
-              class="settings__choice settings__choice--font settings__choice--font--space-mono button"
-              for="space-mono"
-              ><span class="sr-only">Space Mono</span><span>Aa</span></label
-            >
-          </div>
-        </fieldset>
-        <hr class="settings__divider" />
-        <fieldset class="settings__fieldset settings__fieldset--radio fieldset">
-          <h2 class="settings__legend">Color</h2>
-          <div class="settings__input-group-wrapper">
-            <input
-              class="radio js-theme-type"
-              type="radio"
-              name="theme"
-              id="georgie-peach"
-              value="georgie-peach"
-              autocomplete="off"
-            />
-            <label
-              class="settings__choice settings__choice--color settings__choice--color--gergie-peach button"
-              for="georgie-peach"
-              ><span class="sr-only">Georgie Peach</span></label
-            >
-            <input
-              class="radio js-theme-type"
-              type="radio"
-              name="theme"
-              id="robins-egg"
-              value="robins-egg"
-              autocomplete="off"
-            />
-            <label
-              class="settings__choice settings__choice--color settings__choice--color--robins-egg button"
-              for="robins-egg"
-              ><span class="sr-only">Robins Egg</span></label
-            >
-            <input
-              class="radio js-theme-type"
-              type="radio"
-              name="theme"
-              id="lavender-tea"
-              value="lavender-tea"
-              autocomplete="off"
-            />
-            <label
-              class="settings__choice settings__choice--color settings__choice--color--lavender-tea button"
-              for="lavender-tea"
-              ><span class="sr-only">Lavender Tea</span></label
-            >
-          </div>
-        </fieldset>
-      </section>
+              <div class="settings__input-wrapper">
+                <label class="settings__field-label" for="pomodoro-time"
+                  >pomodoro</label
+                >
+                <div class="numfield">
+                  <input
+                    class="numfield__input js-pomodoro-target-time js-number-input"
+                    type="text"
+                    name="time"
+                    id="pomodoro-time"
+                    autocomplete="off"
+                    inputmode="numeric"
+                    placeholder="00"
+                    required
+                  />
+                  <div class="numfield__spin-wrapper">
+                    <button class="numfield__spin numfield__spin--up button js-num-input-incrementor">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="7"
+                      >
+                        <path
+                          fill="none"
+                          stroke="#1E213F"
+                          stroke-opacity=".25"
+                          stroke-width="2"
+                          d="M1 6l6-4 6 4"
+                        />
+                      </svg>
+                      <span class="sr-only">Increment by one</span>
+                    </button>
+                    <button class="numfield__spin numfield__spin--down button js-num-input-decrementor">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="7"
+                      >
+                        <path
+                          fill="none"
+                          stroke="#1E213F"
+                          stroke-opacity=".25"
+                          stroke-width="2"
+                          d="M1 1l6 4 6-4"
+                        />
+                      </svg>
+                      <span class="sr-only">Decrement by one</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="settings__input-wrapper">
+                <label class="settings__field-label" for="short-break-time"
+                  >short break</label
+                >
+                <div class="numfield">
+                  <input
+                    class="numfield__input js-short-break-target-time js-number-input"
+                    type="text"
+                    name="time"
+                    id="short-break-time"
+                    autocomplete="off"
+                    inputmode="numeric"
+                    placeholder="00"
+                    required
+                  />
+                  <div class="numfield__spin-wrapper">
+                    <button class="numfield__spin numfield__spin--up button js-num-input-incrementor">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="7"
+                      >
+                        <path
+                          fill="none"
+                          stroke="#1E213F"
+                          stroke-opacity=".25"
+                          stroke-width="2"
+                          d="M1 6l6-4 6 4"
+                        />
+                      </svg>
+                      <span class="sr-only">Increment by one</span>
+                    </button>
+                    <button class="numfield__spin numfield__spin--down button js-num-input-decrementor">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="7"
+                      >
+                        <path
+                          fill="none"
+                          stroke="#1E213F"
+                          stroke-opacity=".25"
+                          stroke-width="2"
+                          d="M1 1l6 4 6-4"
+                        />
+                      </svg>
+                      <span class="sr-only">Decrement by one</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="settings__input-wrapper">
+                <label class="settings__field-label" for="long-break-time"
+                  >long break</label
+                >
+                <div class="numfield">
+                  <input
+                    class="numfield__input js-long-break-target-time js-number-input"
+                    type="text"
+                    name="time"
+                    id="long-break-time"
+                    autocomplete="off"
+                    inputmode="numeric"
+                    placeholder="00"
+                    required
+                  />
+                  <div class="numfield__spin-wrapper">
+                    <button class="numfield__spin numfield__spin--up button js-num-input-incrementor">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="7"
+                      >
+                        <path
+                          fill="none"
+                          stroke="#1E213F"
+                          stroke-opacity=".25"
+                          stroke-width="2"
+                          d="M1 6l6-4 6 4"
+                        />
+                      </svg>
+                      <span class="sr-only">Increment by one</span>
+                    </button>
+                    <button class="numfield__spin numfield__spin--down button js-num-input-decrementor">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="7"
+                      >
+                        <path
+                          fill="none"
+                          stroke="#1E213F"
+                          stroke-opacity=".25"
+                          stroke-width="2"
+                          d="M1 1l6 4 6-4"
+                        />
+                      </svg>
+                      <span class="sr-only">Decrement by one</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <hr class="settings__divider" />
+          <fieldset class="settings__fieldset settings__fieldset--radio fieldset">
+            <h2 class="settings__legend">Font</h2>
+            <div class="settings__input-group-wrapper">
+              <input
+                class="radio js-font-type"
+                type="radio"
+                name="font"
+                id="kumbh-sans"
+                value="kumbh-sans"
+                autocomplete="off"
+                required
+              />
+              <label
+                class="settings__choice settings__choice--font settings__choice--font--kumbh-sans button"
+                for="kumbh-sans"
+                ><span class="sr-only">Kumbh Sans</span><span>Aa</span>
+              </label>
+              <input
+                class="radio js-font-type"
+                type="radio"
+                name="font"
+                id="roboto-slab"
+                value="roboto-slab"
+                autocomplete="off"
+              />
+              <label
+                class="settings__choice settings__choice--font settings__choice--font--roboto-slab button"
+                for="roboto-slab"
+                ><span class="sr-only">Roboto Slab</span><span>Aa</span></label
+              >
+              <input
+                class="radio js-font-type"
+                type="radio"
+                name="font"
+                id="space-mono"
+                value="space-mono"
+                autocomplete="off"
+              />
+              <label
+                class="settings__choice settings__choice--font settings__choice--font--space-mono button"
+                for="space-mono"
+                ><span class="sr-only">Space Mono</span><span>Aa</span></label
+              >
+            </div>
+          </fieldset>
+          <hr class="settings__divider" />
+          <fieldset class="settings__fieldset settings__fieldset--radio fieldset">
+            <h2 class="settings__legend">Color</h2>
+            <div class="settings__input-group-wrapper">
+              <input
+                class="radio js-theme-type"
+                type="radio"
+                name="theme"
+                id="georgie-peach"
+                value="georgie-peach"
+                autocomplete="off"
+                required
+              />
+              <label
+                class="settings__choice settings__choice--color settings__choice--color--gergie-peach button"
+                for="georgie-peach"
+                ><span class="sr-only">Georgie Peach</span></label
+              >
+              <input
+                class="radio js-theme-type"
+                type="radio"
+                name="theme"
+                id="robins-egg"
+                value="robins-egg"
+                autocomplete="off"
+              />
+              <label
+                class="settings__choice settings__choice--color settings__choice--color--robins-egg button"
+                for="robins-egg"
+                ><span class="sr-only">Robins Egg</span></label
+              >
+              <input
+                class="radio js-theme-type"
+                type="radio"
+                name="theme"
+                id="lavender-tea"
+                value="lavender-tea"
+                autocomplete="off"
+              />
+              <label
+                class="settings__choice settings__choice--color settings__choice--color--lavender-tea button"
+                for="lavender-tea"
+                ><span class="sr-only">Lavender Tea</span></label
+              >
+            </div>
+          </fieldset>
+        </section>
+      </div>
       <button class="settings__apply button js-apply-settings">Apply</button>
     </dialog>
+    <div class="attribution js-attribution">
+      Challenge by
+      <a
+        class="extra-bold very-dark-grey-blue link"
+        href="https://www.frontendmentor.io?ref=challenge"
+        target="_self"
+        >Frontend Mentor</a
+      >. Coded by
+      <a
+        class="extra-bold very-dark-grey-blue link"
+        href="https://github.com/CarlosSimon02"
+        >@CarlosSimon02</a
+      >.
+    </div>
   </body>
 </html>

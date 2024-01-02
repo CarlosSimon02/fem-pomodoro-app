@@ -1,4 +1,4 @@
-import { MILLISECONDS_PER_SECOND } from "./helpers.js";
+import { MILLISECONDS_PER_SECOND, isInputsValid } from "./helpers.js";
 
 export default class Controller {
   #store = null;
@@ -92,6 +92,9 @@ export default class Controller {
   }
 
   openSettings() {
+    const settingsValues = this.#store.retrieveSettingsValues();
+
+    this.#view.setSettingsValues(settingsValues);
     this.#view.showSettingsModal();
   }
 
@@ -101,16 +104,20 @@ export default class Controller {
     this.#view.closeSettingsModal();
   }
 
-  applySettings() {
-    const settingsValues = this.#view.getSettingsValues();
+  applySettings(settingsInputs) {
+    const isSettingsInputsValid = isInputsValid(settingsInputs);
+
+    if(isSettingsInputsValid) {
+      const settingsValues = this.#view.getSettingsValues();
     
-    this.#pauseTimer();
-    this.#store.saveSettingsValues(settingsValues);
-    this.#view.setTimerAndProgressBarValue(
-      this.#store.retrieveTimeRemaining(),
-      this.#store.retrieveTargetTime()
-    );
-    this.#view.closeSettingsModal();
+      this.#pauseTimer();
+      this.#store.saveSettingsValues(settingsValues);
+      this.#view.setTimerAndProgressBarValue(
+        this.#store.retrieveTimeRemaining(),
+        this.#store.retrieveTargetTime()
+      );
+      this.#view.closeSettingsModal();
+    }
   }
 
   processFontSelection(font) {

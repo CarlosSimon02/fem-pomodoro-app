@@ -51,7 +51,6 @@ export function formatTime(timeInSeconds) {
   return `${minutes}:${seconds}`;
 }
 
-
 export function handleErrors(fn) {
   return function (...args) {
     try {
@@ -79,3 +78,29 @@ export function toMinutes(timeInSeconds) {
   return timeInSeconds / SECONDS_PER_MINUTE;
 }
 
+export function isInputsValid(inputs) {
+  for (const input of inputs) {
+    if (input.hasAttribute("required")) {
+      if (input.type === "radio" || input.type === "checkbox") {
+        const checked = qs(`input[name="${input.name}"]:checked`);
+        if (!checked) {
+          input.setCustomValidity("Please select an option.");
+          input.reportValidity();
+          return false;
+        } else {
+          input.setCustomValidity("");
+        }
+      } else if (input.type === "text") {
+        if (input.value.trim() === "") {
+          input.setCustomValidity("This field is required.");
+          input.reportValidity();
+          return false;
+        } else {
+          input.setCustomValidity("");
+        }
+      }
+    }
+  };
+
+  return true
+}

@@ -220,7 +220,11 @@ export default class View {
   }
 
   bindApplySettings(handler) {
-    on(this.#applySettings, "click", handler);
+    const settingsInputs = qsa(".js-settings input");
+
+    on(this.#applySettings, "click", function() {
+      handler(settingsInputs);      
+    });
   }
 
   bindIncrementNumInput(handler) {
