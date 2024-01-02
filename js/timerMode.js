@@ -32,6 +32,7 @@ export default class TimerMode {
 
   setTargetTime(targetTime) {
     this.#targetTime = targetTime;
+    this.restartTimeRemaining();
   }
 
   getTimeRemaining() {

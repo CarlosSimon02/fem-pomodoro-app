@@ -112,8 +112,12 @@ export default class View {
     this.#shortBreakTargetTime.value = toMinutes(settings.shortBreakTargetTime);
     this.#longBreakTargetTime.value = toMinutes(settings.longBreakTargetTime);
 
-    let fontButton = qs(`.js-font-type[value="${settings.font}"]`);
-    let themeButton = qs(`.js-theme-type[value="${settings.theme}"]`);
+    this.setFontAndTheme(settings.font, settings.theme);
+  }
+
+  setFontAndTheme(font, theme) {
+    let fontButton = qs(`.js-font-type[value="${font}"]`);
+    let themeButton = qs(`.js-theme-type[value="${theme}"]`);
     fontButton.checked = true;
     themeButton.checked = true;
     fontButton.dispatchEvent(new Event("change"));
@@ -124,7 +128,7 @@ export default class View {
     return {
       pomodoroTargetTime: toSeconds(this.#pomodoroTargetTime.value),
       shortBreakTargetTime: toSeconds(this.#shortBreakTargetTime.value),
-      longBreakTargetTime: toSeconds(this.#shortBreakTargetTime.value),
+      longBreakTargetTime: toSeconds(this.#longBreakTargetTime.value),
       font: qs(`.js-font-type:checked`).value,
       theme: qs(`.js-theme-type:checked`).value,
     };
@@ -250,7 +254,7 @@ export default class View {
       "contextmenu",
       "drop",
       "focusout",
-      "change"
+      "change",
     ];
 
     events.forEach((event) => {
@@ -259,6 +263,6 @@ export default class View {
           handler(numInput, event);
         });
       });
-    })
+    });
   }
 }

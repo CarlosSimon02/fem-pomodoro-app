@@ -97,19 +97,20 @@ export default class Controller {
 
   closeSettings() {
     const settings = this.#store.retrieveSettingsValues();
-    this.#view.setSettingsValues(settings);
+    this.#view.setFontAndTheme(settings.font, settings.theme);
     this.#view.closeSettingsModal();
-    this.#view.setTimerAndProgressBarValue(
-      this.#store.retrieveTimeRemaining(),
-      this.#store.retrieveTargetTime()
-    );
   }
 
   applySettings() {
     const settingsValues = this.#view.getSettingsValues();
+    
+    this.#pauseTimer();
     this.#store.saveSettingsValues(settingsValues);
+    this.#view.setTimerAndProgressBarValue(
+      this.#store.retrieveTimeRemaining(),
+      this.#store.retrieveTargetTime()
+    );
     this.#view.closeSettingsModal();
-    this.restartTimer();
   }
 
   processFontSelection(font) {
@@ -142,7 +143,7 @@ export default class Controller {
     const isValidInput =
       /^\d*$/.test(numInput.value) &&
       ((parseInt(numInput.value) >= 1 && parseInt(numInput.value) <= 99) ||
-      numInput.value === "");
+        numInput.value === "");
 
     if (isValidInput) {
       // Accepted value
@@ -154,7 +155,9 @@ export default class Controller {
       numInput.oldSelectionEnd = numInput.selectionEnd;
     } else if (numInput.hasOwnProperty("oldValue")) {
       // Rejected value - restore the previous one
-      numInput.setCustomValidity("Please enter a number between 1 and 99 inclusive");
+      numInput.setCustomValidity(
+        "Please enter a number between 1 and 99 inclusive"
+      );
       numInput.reportValidity();
       numInput.value = numInput.oldValue;
       numInput.setSelectionRange(
