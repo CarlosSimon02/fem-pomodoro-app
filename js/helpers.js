@@ -51,23 +51,9 @@ export function formatTime(timeInSeconds) {
   return `${minutes}:${seconds}`;
 }
 
-export function handleErrors(fn) {
-  return function (...args) {
-    try {
-      return fn.apply(this, args);
-    } catch (error) {
-      console.error(error); // Log the error for debugging purposes
-
-      // Notify the user of the error
-      notifyUserOfError(error);
-
-      // Report the error to a service or backend
-      reportErrorToService(error);
-
-      // You can choose to throw the error again or handle it silently
-      // throw error;
-    }
-  };
+export function logError(error) {
+  console.error(error);
+  alert(error);
 }
 
 export function toSeconds(timeInMinutes) {
@@ -100,7 +86,23 @@ export function isInputsValid(inputs) {
         }
       }
     }
-  };
+  }
 
-  return true
+  return true;
+}
+
+export function validateElements(elements) {
+  const nullElements = elements.filter(({ el }) => {
+    if (Array.isArray(el)) {
+      return el.length === 0;
+    }
+    return el === null;
+  });
+
+  if (nullElements.length > 0) {
+    const nullElementNames = nullElements.map(({ name }) => name).join(", ");
+    throw new Error(
+      `The following element(s) were not found on the page: ${nullElementNames}`
+    );
+  }
 }
