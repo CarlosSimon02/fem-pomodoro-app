@@ -17,7 +17,7 @@
     filter: brightness(.4);
   }
 
-  &:enabled:active {
+  &:active:not(:disabled) {
     scale: 1.1;
   }
 
