@@ -12,8 +12,12 @@
     stroke-opacity var(--button-trans-duration) var(--button-trans-timing),
     fill var(--button-trans-duration) var(--button-trans-timing),
     scale var(--button-trans-duration) var(--button-trans-timing);
+  
+  &:disabled {
+    filter: brightness(.4);
+  }
 
-  &:active {
+  &:enabled:active {
     scale: 1.1;
   }
 

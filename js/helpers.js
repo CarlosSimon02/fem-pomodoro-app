@@ -106,3 +106,7 @@ export function validateElements(elements) {
     );
   }
 }
+
+export function calculateElapsedTime(startingTime,endingTime) {
+  return (endingTime - startingTime) / MILLISECONDS_PER_SECOND;
+}

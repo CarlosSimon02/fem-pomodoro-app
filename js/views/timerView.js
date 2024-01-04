@@ -14,6 +14,7 @@ export default class TimerView {
   #timer;
   #progressBar;
   #timerModes;
+  #audio;
 
   constructor() {
     this.#playPauseTimer = qs(".js-play-pause-timer");
@@ -21,6 +22,8 @@ export default class TimerView {
     this.#timer = qs(".js-timer");
     this.#progressBar = qs(".js-progress-bar circle");
     this.#timerModes = qsa(".js-timer-mode");
+    this.#audio = new Audio("./assets/audio/alarm.mp3");
+    this.#audio.loop = true;
 
     this.#validateElements();
   }
@@ -48,14 +51,29 @@ export default class TimerView {
     this.#progressBar.style.strokeDashoffset = progressBarOffset;
   }
 
-  togglePlayPauseButtonLabel(isTimerRunning) {
-    this.#playPauseTimer.innerHTML = isTimerRunning ? "Pause" : "Play";
+  setPlayPauseButtonLabel(label) {
+    this.#playPauseTimer.innerHTML = label;
+  }
+
+  setPlayPauseButtonDisable(disabled) {
+    this.#playPauseTimer.disabled = disabled;
   }
 
   checkTimerModeButton(timerModeName) {
     let radioButton = qs(`.js-timer-mode[value="${timerModeName}"]`);
     radioButton.checked = true;
     radioButton.dispatchEvent(new Event("change"));
+  }
+
+  activateTimerFinishedEffect() {
+    this.#audio.currentTime = 0;
+    this.#audio.play();
+    this.#timer.classList.add("timer-finished");
+  }
+
+  deactivateTimerFinishedEffect() {
+    this.#audio.pause();
+    this.#timer.classList.remove("timer-finished");
   }
 
   /**

@@ -3,10 +3,10 @@ export default class TimerMode {
   #targetTime;
   #timeRemaining;
 
-  constructor(name, targetTime) {
+  constructor(name, targetTime, timeRemaining = targetTime) {
     this.#name = name;
     this.#targetTime = targetTime;
-    this.#timeRemaining = targetTime;
+    this.#timeRemaining = timeRemaining;
   }
 
   /**

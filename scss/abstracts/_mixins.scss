@@ -1,8 +1,8 @@
 @use "variables" as *;
 
 @mixin on-event() {
-  &:hover,
-  &:active {
+  &:enabled:hover,
+  &:enabled:active {
     @content;
   }
 }

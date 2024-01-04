@@ -67,5 +67,9 @@
     &__digits {
         font-size: small-to-medium(70,90);
         line-height: 1;
+
+        &.timer-finished {
+            animation: blink .5s linear infinite;
+        }
     }
 }
