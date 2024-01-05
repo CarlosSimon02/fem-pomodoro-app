@@ -1,0 +1,20 @@
+{
+  "name": "fem-pomodoro-app",
+  "version": "1.0.0",
+  "description": "Explore the Pomodoro App, a Frontend Mentor Challenge project crafted using HTML, SCSS, and vanilla JavaScript. Elevate productivity with this Pomodoro-inspired timer, perfect for focused work. Seamlessly switch between work and breaks, utilizing short and long break features. Optimize your workflow, achieve balance, and effortlessly boost productivity.",
+  "main": "js/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarlosSimon02/fem-pomodoro-app.git"
+  },
+  "author": "Carlos Simon Camacho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CarlosSimon02/fem-pomodoro-app/issues"
+  },
+  "homepage": "https://github.com/CarlosSimon02/fem-pomodoro-app#readme"
+}

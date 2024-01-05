@@ -16,8 +16,8 @@ export default class NumInput {
     this.#validateElements();
 
     this.bindValidateNumInput(this.validateNumInput.bind(this));
-    this.bindIncrementNumInput(this.validateNumInput.bind(this));
-    this.bindDecrementNumInput(this.validateNumInput.bind(this));
+    this.bindIncrementNumInput(this.incrementNumInput.bind(this));
+    this.bindDecrementNumInput(this.decrementNumInput.bind(this));
   }
 
   #validateElements() {
@@ -50,6 +50,20 @@ export default class NumInput {
         handler(numInput);
       });
     });
+  }
+
+  incrementNumInput(numInput) {
+    let value = Number(numInput.value);
+    value++;
+    numInput.value = value;
+    this.validateNumInput(numInput, "change");
+  }
+
+  decrementNumInput(numInput) {
+    let value = Number(numInput.value);
+    value--;
+    numInput.value = value;
+    this.validateNumInput(numInput, "change");
   }
 
   validateNumInput(numInput, event) {
