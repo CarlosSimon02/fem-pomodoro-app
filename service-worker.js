@@ -17,21 +17,21 @@ workbox.routing.registerRoute(
 
 workbox.routing.registerRoute(
   /\.(?:html|css|js)$/,
-  new workbox.strategies.StaleWhileRevalidate({
+  new workbox.strategies.CacheFirst({
     cacheName: "static-resources",
   })
 );
 
 workbox.routing.registerRoute(
   ({ url }) => url.origin === "https://fonts.googleapis.com",
-  new workbox.strategies.StaleWhileRevalidate({
+  new workbox.strategies.CacheFirst({
     cacheName: "google-fonts-stylesheets",
   })
 );
 
 workbox.routing.registerRoute(
   ({ url }) => url.origin === "https://fonts.gstatic.com",
-  new workbox.strategies.StaleWhileRevalidate({
+  new workbox.strategies.CacheFirst({
     cacheName: "google-fonts-webfonts",
   })
 );
