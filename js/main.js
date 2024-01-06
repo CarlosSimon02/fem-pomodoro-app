@@ -15,6 +15,14 @@ const view = new MainView();
 const controller = new MainController(store, view);
 
 const setView = controller.setView.bind(controller);
-const triggerLocalStorageSave = controller.triggerLocalStorageSave.bind(controller);
+const triggerLocalStorageSave =
+  controller.triggerLocalStorageSave.bind(controller);
 on(window, "load", setView);
 on(window, "beforeunload", triggerLocalStorageSave);
+
+//ask notification permission
+on(document, "click", function () {
+  if ("Notification" in window && Notification.permission !== "granted") {
+    Notification.requestPermission();
+  }
+});

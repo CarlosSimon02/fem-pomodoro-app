@@ -13,9 +13,25 @@ export default class TimerController {
     view.bindSelectedTimerMode(this.setAndRenderTimerMode.bind(this));
   }
 
+  #notifyTimeStatus(status) {
+    const statuses = ["started", "finished"];
+
+    if (statuses.includes(status)) {
+      const mode = this.#store.retrieveCurrentTimerModeName();
+      this.#view.sendNotification(mode, status);
+    }
+  }
+
   #playTimer() {
-    this.#view.setPlayPauseButtonLabel("Pause");
+    const timeRemaining = this.#store.retrieveTimeRemaining();
+    const targetTime = this.#store.retrieveTargetTime();
     let startTime = Date.now();
+
+    this.#view.setPlayPauseButtonLabel("Pause");
+
+    if (timeRemaining === targetTime) {
+      this.#notifyTimeStatus("started");
+    }
 
     const intervalId = setInterval(() => {
       const currentTime = Date.now();
@@ -28,8 +44,9 @@ export default class TimerController {
 
       if (this.#store.retrieveTimeRemaining() === 0) {
         this.#view.setPlayPauseButtonDisable(true);
-        this.#pauseTimer();
         this.#view.activateTimerFinishedEffect();
+        this.#pauseTimer();
+        this.#notifyTimeStatus("finished");
       }
     }, 10);
 

@@ -15,6 +15,7 @@ export default class TimerView {
   #progressBar;
   #timerModes;
   #audio;
+  #messages;
 
   constructor() {
     this.#playPauseTimer = qs(".js-play-pause-timer");
@@ -24,6 +25,30 @@ export default class TimerView {
     this.#timerModes = qsa(".js-timer-mode");
     this.#audio = new Audio("./assets/audio/alarm.mp3");
     this.#audio.loop = true;
+
+    this.#messages = [
+      {
+        mode: "Pomodoro",
+        started:
+          "Time to dive in! Let's make the most of this Pomodoro session. You've got this!",
+        finished:
+          "Congratulations! Pomodoro complete. You've made great progress!",
+      },
+      {
+        mode: "Short break",
+        started:
+          "Time for a breather! You're rocking it, take a well-deserved break.",
+        finished:
+          "Break time's over—back to it! You're doing amazing, keep up the great work!",
+      },
+      {
+        mode: "Long break",
+        started:
+          "Enjoy your extended break! You've earned this time to recharge and refresh.",
+        finished:
+          "Welcome back! Hope you're recharged. Let's dive back in and conquer those tasks!",
+      },
+    ];
 
     this.#validateElements();
   }
@@ -41,6 +66,23 @@ export default class TimerView {
       validateElements(elements);
     } catch (error) {
       logError(error);
+    }
+  }
+
+  sendNotification(mode, status) {
+    const indices = {
+      "pomodoro": 0,
+      "shortBreak": 1,
+      "longBreak": 2
+    };
+
+    const msg = this.#messages[indices[mode]];
+    
+    if (Notification.permission === "granted") {
+      const notification = new Notification(`${msg.mode} ${status}`, {
+        body: msg[status],
+        tag: "time status"
+      });
     }
   }
 
