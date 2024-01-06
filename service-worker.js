@@ -24,14 +24,14 @@ workbox.routing.registerRoute(
 
 workbox.routing.registerRoute(
   ({ url }) => url.origin === "https://fonts.googleapis.com",
-  new StaleWhileRevalidate({
+  new workbox.strategies.StaleWhileRevalidate({
     cacheName: "google-fonts-stylesheets",
   })
 );
 
 workbox.routing.registerRoute(
   ({ url }) => url.origin === "https://fonts.gstatic.com",
-  new StaleWhileRevalidate({
+  new workbox.strategies.StaleWhileRevalidate({
     cacheName: "google-fonts-webfonts",
   })
 );
