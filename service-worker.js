@@ -9,11 +9,22 @@ workbox.routing.registerRoute(
     plugins: [
       new workbox.expiration.ExpirationPlugin({
         maxEntries: 60,
-        maxAgeSeconds: 30 * 24 * 60 * 60,
       }),
     ],
   })
 );
+
+workbox.routing.registerRoute(
+    /\.(?:mp3)$/,
+    new workbox.strategies.CacheFirst({
+      cacheName: "audios",
+      plugins: [
+        new workbox.expiration.ExpirationPlugin({
+          maxEntries: 60,
+        }),
+      ],
+    })
+  );
 
 workbox.routing.registerRoute(
   /\.(?:html|css|js)$/,
