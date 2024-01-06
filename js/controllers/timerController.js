@@ -43,10 +43,10 @@ export default class TimerController {
       startTime = currentTime; // Update start time for next interval
 
       if (this.#store.retrieveTimeRemaining() === 0) {
-        this.#view.setPlayPauseButtonDisable(true);
-        this.#view.activateTimerFinishedEffect();
         this.#pauseTimer();
         this.#notifyTimeStatus("finished");
+        this.#view.setPlayPauseButtonDisable(true);
+        this.#view.activateTimerFinishedEffect();
       }
     }, 10);
 

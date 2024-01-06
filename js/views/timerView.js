@@ -32,7 +32,7 @@ export default class TimerView {
         started:
           "Time to dive in! Let's make the most of this Pomodoro session. You've got this!",
         finished:
-          "Congratulations! Pomodoro complete. You've made great progress!",
+          "Congratulations! You've made great progress!",
       },
       {
         mode: "Short break",
