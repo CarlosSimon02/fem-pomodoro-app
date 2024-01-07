@@ -1,11 +1,14 @@
-# Frontend Mentor - Pomodoro app solution
+# FEM Pomodoro App
 
-This is a solution to the [Pomodoro app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/pomodoro-app-KBFnycJ6G). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+Elevate productivity with this Pomodoro-inspired timer, perfect for focused work. Seamlessly switch between work and breaks, utilizing short and long break features. Optimize your workflow, achieve balance, and effortlessly boost productivity.
+
+ 
 
 ## Table of contents
 
 - [Overview](#overview)
-  - [The challenge](#the-challenge)
+  - [Preface](#preface)
+  - [Features](#features)
   - [Screenshot](#screenshot)
   - [Links](#links)
 - [My process](#my-process)
@@ -20,14 +23,25 @@ This is a solution to the [Pomodoro app challenge on Frontend Mentor](https://ww
 
 ## Overview
 
-### The challenge
+### Preface
 
-Users should be able to:
+This is a solution to the [Pomodoro app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/pomodoro-app-KBFnycJ6G). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-- Set a pomodoro timer and short & long break timers
-- Customize how long each timer runs for
-- See a circular progress bar that updates every minute and represents how far through their timer they are
-- Customize the appearance of the app with the ability to set preferences for colors and fonts
+### Features
+
+- **Timer Modes:** Switch between Pomodoro, short break, and long break modes.
+  
+- **Flexible Timers:** Customize target times to suit your needs.
+  
+- **Interactive Progress Display:** A dynamic circular progress bar visually tracks your timer progress.
+  
+- **Personalized Appearance:** Customize colors and fonts for a personalized experience.
+  
+- **Notification Alerts:** Receive notifications when timers start and finish for added convenience.
+  
+- **Progressive Web App (PWA) Capability:** Install the app like a native application for easy access across devices.
+  
+- **Offline Availability:** Use the app even without an internet connection, ensuring uninterrupted productivity.
 
 ### Screenshot
 
