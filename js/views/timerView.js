@@ -82,13 +82,11 @@ export default class TimerView {
       navigator.serviceWorker.controller &&
       Notification.permission === "granted"
     ) {
-      console.log("run");
-      navigator.serviceWorker.controller.postMessage({
-        action: "showNotification",
-        payload: {
-          title: `${msg.mode} ${status}`,
+      navigator.serviceWorker.ready.then(function (registration) {
+        registration.showNotification(`${msg.mode} ${status}`, {
           body: msg[status],
-        },
+          icon: "./favicons/favicon.ico"
+        });
       });
     }
   }
