@@ -20,9 +20,9 @@ const triggerLocalStorageSave =
 on(window, "load", setView);
 on(window, "beforeunload", triggerLocalStorageSave);
 
-//ask notification permission
+// ask notification permission
 on(document, "click", function () {
   if ("Notification" in window && Notification.permission !== "granted") {
-    Notification.requestPermission();
+    Notification.requestPermission(); 
   }
 });

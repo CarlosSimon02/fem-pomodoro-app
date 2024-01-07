@@ -46,3 +46,12 @@ workbox.routing.registerRoute(
     cacheName: "google-fonts-webfonts",
   })
 );
+
+self.addEventListener('message', event => {
+  if (event.data.action === 'showNotification') {
+    const { title, body } = event.data.payload;
+    self.registration.showNotification(title, {
+      body: body,
+    });
+  }
+});

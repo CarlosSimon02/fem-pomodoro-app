@@ -31,8 +31,7 @@ export default class TimerView {
         mode: "Pomodoro",
         started:
           "Time to dive in! Let's make the most of this Pomodoro session. You've got this!",
-        finished:
-          "Congratulations! You've made great progress!",
+        finished: "Congratulations! You've made great progress!",
       },
       {
         mode: "Short break",
@@ -71,17 +70,25 @@ export default class TimerView {
 
   sendNotification(mode, status) {
     const indices = {
-      "pomodoro": 0,
-      "shortBreak": 1,
-      "longBreak": 2
+      pomodoro: 0,
+      shortBreak: 1,
+      longBreak: 2,
     };
 
     const msg = this.#messages[indices[mode]];
-    
-    if (Notification.permission === "granted") {
-      const notification = new Notification(`${msg.mode} ${status}`, {
-        body: msg[status],
-        tag: "time status"
+
+    if (
+      "serviceWorker" in navigator &&
+      navigator.serviceWorker.controller &&
+      Notification.permission === "granted"
+    ) {
+      console.log("run");
+      navigator.serviceWorker.controller.postMessage({
+        action: "showNotification",
+        payload: {
+          title: `${msg.mode} ${status}`,
+          body: msg[status],
+        },
       });
     }
   }
