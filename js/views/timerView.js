@@ -85,7 +85,8 @@ export default class TimerView {
       navigator.serviceWorker.ready.then(function (registration) {
         registration.showNotification(`${msg.mode} ${status}`, {
           body: msg[status],
-          icon: "./favicons/favicon.ico"
+          icon: "./favicons/favicon.ico",
+          tag: "timer status",
         });
       });
     }
