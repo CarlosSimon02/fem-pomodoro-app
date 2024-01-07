@@ -73,14 +73,15 @@ Here's a summary of the things I've learned throughout this process.
 
 #### Open Graph(OG)
 #### Accesibility
+#### Search Engine Optimization(SEO)
 #### BEM(Block Element Modifier) Architecture
 #### MVC(Model View Controller) Architecture
+#### Progressive Web App(PWA)
+#### ES12 Classes
+#### Closure
+#### Local Storage
 #### Node Package Manager(NPM)
-#### Progressive Web App
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
 
 
 ### Continued development
