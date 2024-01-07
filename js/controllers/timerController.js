@@ -44,9 +44,9 @@ export default class TimerController {
 
       if (this.#store.retrieveTimeRemaining() === 0) {
         this.#pauseTimer();
-        this.#notifyTimeStatus("finished");
         this.#view.setPlayPauseButtonDisable(true);
         this.#view.activateTimerFinishedEffect();
+        this.#notifyTimeStatus("finished");
       }
     }, 10);
 
