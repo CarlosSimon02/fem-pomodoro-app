@@ -86,7 +86,6 @@ export default class TimerView {
         registration.showNotification(`${msg.mode} ${status}`, {
           body: msg[status],
           icon: "./favicons/favicon.ico",
-          tag: "timer status",
         });
       });
     }
