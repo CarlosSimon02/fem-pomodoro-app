@@ -19,8 +19,6 @@ Elevate productivity with this Pomodoro-inspired timer, perfect for focused work
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 
 ### Preface
