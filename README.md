@@ -27,18 +27,12 @@ This is a solution to the [Pomodoro app challenge on Frontend Mentor](https://ww
 
 ### Features
 
-- **Timer Modes:** Switch between Pomodoro, short break, and long break modes.
-  
+- **Timer Modes:** Switch between Pomodoro, short break, and long break modes. 
 - **Flexible Timers:** Customize target times to suit your needs.
-  
 - **Interactive Progress Display:** A dynamic circular progress bar visually tracks your timer progress.
-  
 - **Personalized Appearance:** Customize colors and fonts for a personalized experience.
-  
 - **Notification Alerts:** Receive notifications when timers start and finish for added convenience.
-  
 - **Progressive Web App (PWA) Capability:** Install the app like a native application for easy access across devices.
-  
 - **Offline Availability:** Use the app even without an internet connection, ensuring uninterrupted productivity.
 
 ### Screenshot
