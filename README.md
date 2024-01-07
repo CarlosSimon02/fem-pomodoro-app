@@ -2,8 +2,6 @@
 
 Elevate productivity with this Pomodoro-inspired timer, perfect for focused work. Seamlessly switch between work and breaks, utilizing short and long break features. Optimize your workflow, achieve balance, and effortlessly boost productivity.
 
- 
-
 ## Table of contents
 
 - [Overview](#overview)
@@ -48,47 +46,42 @@ This is a solution to the [Pomodoro app challenge on Frontend Mentor](https://ww
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://fempomodoro.netlify.app/)
+- Solution URL: ---> [LINK](https://www.frontendmentor.io/solutions/fem-pomodoro-app-using-html-css-and-vanilla-javascript-g8E78rx7dm)
+- Live Site URL: ---> [LINK](https://fempomodoro.netlify.app/)
 
 ## My process
 
-### Built with
+### Technologies Used
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- SASS/SCSS for efficient styling
+- BEM (Block Element Modifier) Architecture for structured CSS
+- MVC (Model-View-Controller) Architecture for organized code structure
+- NPM (Node Package Manager) for package management
+- Mobile-first Workflow for responsive design
+- Webpack for module bundling and optimization
+- HTML Semantic Tags for structured and meaningful markup
 
 ### What I learned
+
+Oh boy! Where do I begin? This Frontend Mentor Challenge has provided me with the densest and most valuable knowledge I've acquired so far.
+
+At first, similar to my previous Frontend Mentor projects, I intended to write this code quickly without much consideration for quality. However, everything changed when I watched a [video](https://www.youtube.com/watch?v=GEr--yTShz8&t=394s) from one of my favorite C++ channels, [The Cherno](https://www.youtube.com/@TheCherno/). In it, he emphasized that the time spent on a project doesn't guarantee its quality. If you only focus on coding without learning, the resulting code might not be of high quality. His words deeply resonated with me because I had been approaching these Frontend Mentor challenges merely to test my coding speed and project completion time.
+
+This realization inspired me to step out of my comfort zone and delve into more research and learning. In fact, I dedicated more time to learning.
+
+Here's a summary of the things I've learned throughout this process.
+
+#### Open Graph(OG)
+#### Accesibility
+#### BEM(Block Element Modifier) Architecture
+#### MVC(Model View Controller) Architecture
+#### Node Package Manager(NPM)
+#### Progressive Web App
 
 Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
 
 To see how you can add code snippets, see below:
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
