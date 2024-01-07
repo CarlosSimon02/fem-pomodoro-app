@@ -92,4 +92,6 @@ Here's a summary of the things I've learned throughout this process.
   
 10. **Node Package Manager (NPM):** Coding with just HTML, CSS, and vanilla JavaScript? It's like digging a hole with bare hands, so much effort! But finding out about this whole NPM thing? Total game-changer! Even though I'm only scratching the surface with bundling JS modules, I know diving deep into NPM will seriously level up my game and make life way easier.
 
+11. **Profiling:**
+
 **Note: I might add more content here when I regain motivation.**
