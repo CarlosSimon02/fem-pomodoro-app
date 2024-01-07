@@ -81,14 +81,14 @@ Here's a summary of the things I've learned throughout this process.
 #### Closure
 #### Local Storage
 #### Node Package Manager(NPM)
-
+#### Using Shortcuts
 
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+#### Using Shortcuts
+#### Node Package Manager(NPM)
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
 
 ### Useful resources
 
