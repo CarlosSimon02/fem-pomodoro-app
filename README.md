@@ -9,6 +9,7 @@ Elevate productivity with this Pomodoro-inspired timer, perfect for focused work
 - [Overview](#overview)
   - [Preface](#preface)
   - [Features](#features)
+  - [To Add Features](#to-add-features)
   - [Screenshot](#screenshot)
   - [Links](#links)
 - [My process](#my-process)
@@ -35,6 +36,12 @@ This is a solution to the [Pomodoro app challenge on Frontend Mentor](https://ww
 - **Progressive Web App (PWA) Capability:** Install the app like a native application for easy access across devices.
 - **Offline Availability:** Use the app even without an internet connection, ensuring uninterrupted productivity.
 
+### To Add Features
+
+- **Automatic Timer Mode Switch Option:** Implement functionality to offer users the option to automatically switch between Pomodoro, short break, and long break modes
+
+- **Ability to Display Pomodoro Count on That Day:** Enable the app to showcase the number of completed Pomodoro sessions for the current day, aiding users in tracking their daily productivity.
+
 ### Screenshot
 
 ![](./preview/screenshot.png)
@@ -42,7 +49,7 @@ This is a solution to the [Pomodoro app challenge on Frontend Mentor](https://ww
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Add live site URL here](https://fempomodoro.netlify.app/)
 
 ## My process
 
