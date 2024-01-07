@@ -71,42 +71,25 @@ This realization inspired me to step out of my comfort zone and delve into more 
 
 Here's a summary of the things I've learned throughout this process.
 
-#### Open Graph(OG)
-#### Accesibility
-#### Search Engine Optimization(SEO)
-#### BEM(Block Element Modifier) Architecture
-#### MVC(Model View Controller) Architecture
-#### Progressive Web App(PWA)
-#### ES12 Classes
-#### Closure
-#### Local Storage
-#### Node Package Manager(NPM)
-#### Using Shortcuts
 
+1. **Open Graph (OG):** Understanding how OG tags control the display of content on social media platforms.
+  
+2. **Accessibility:** Ensuring your app is usable by all, considering diverse needs and disabilities.
+  
+3. **Search Engine Optimization (SEO):** Optimizing your app to rank better in search engine results.
+  
+4. **BEM (Block Element Modifier) Architecture:** Structuring CSS for better readability and scalability.
+  
+5. **MVC (Model View Controller) Architecture:** Organizing code into models, views, and controllers for better code organization.
+  
+6. **Progressive Web App (PWA):** Building web apps that offer native app-like experiences and functionalities.
+  
+7. **ES12 Classes:** Utilizing the class syntax introduced in ECMAScript 12 (ES2022). Especially private properties.
+  
+8. **Closure:** Getting the hang of closures in JavaScript for encapsulation was a huge moment. Funny enough, I'd heard about this concept ages ago, but diving in made me truly get it. You know what they say: experience really is the best teacher.
+  
+9. **Local Storage:** Storing data within the user's browser for data management.
+  
+10. **Node Package Manager (NPM):** Coding with just HTML, CSS, and vanilla JavaScript? It's like digging a hole with bare hands, so much effort! But finding out about this whole NPM thing? Total game-changer! Even though I'm only scratching the surface with bundling JS modules, I know diving deep into NPM will seriously level up my game and make life way easier.
 
-### Continued development
-
-#### Using Shortcuts
-#### Node Package Manager(NPM)
-
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
-
-## Author
-
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+**Note: I might add more content here when I regain motivation.**
