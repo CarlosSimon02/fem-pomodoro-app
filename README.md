@@ -91,5 +91,6 @@ Here's a summary of the things I've learned throughout this process.
 11. **Profiling:**
 
 12. **Destructuring Assignment**
+13. **Modules**
 
 **Note: I might add more content here when I regain motivation.**
