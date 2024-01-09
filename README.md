@@ -92,5 +92,6 @@ Here's a summary of the things I've learned throughout this process.
 
 12. **Destructuring Assignment**
 13. **Modules**
+14. **Input Validation**
 
 **Note: I might add more content here when I regain motivation.**
