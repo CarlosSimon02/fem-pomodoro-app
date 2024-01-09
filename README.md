@@ -14,13 +14,13 @@ Elevate productivity with this Pomodoro-inspired timer, perfect for focused work
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
 
-## Overview
+## 👁️Overview
 
-### Preface
+### 🖐️Preface
 
 This is a solution to the [Pomodoro app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/pomodoro-app-KBFnycJ6G). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-### Features
+### ✨Features
 
 - **Timer Modes:** Switch between Pomodoro, short break, and long break modes. 
 - **Flexible Timers:** Customize target times to suit your needs.
@@ -30,24 +30,24 @@ This is a solution to the [Pomodoro app challenge on Frontend Mentor](https://ww
 - **Progressive Web App (PWA) Capability:** Install the app like a native application for easy access across devices.
 - **Offline Availability:** Use the app even without an internet connection, ensuring uninterrupted productivity.
 
-### To Add Features
+### 🖋️To Add Features
 
 - **Automatic Timer Mode Switch Option:** Implement functionality to offer users the option to automatically switch between Pomodoro, short break, and long break modes
 
 - **Ability to Display Pomodoro Count on That Day:** Enable the app to showcase the number of completed Pomodoro sessions for the current day, aiding users in tracking their daily productivity.
 
-### Screenshot
+### 📸Screenshot
 
 ![](./preview/screenshot.png)
 
-### Links
+### 🔗Links
 
 - Solution URL: ---> [LINK](https://www.frontendmentor.io/solutions/fem-pomodoro-app-using-html-css-and-vanilla-javascript-g8E78rx7dm)
 - Live Site URL: ---> [LINK](https://fempomodoro.netlify.app/)
 
-## My process
+## 🚛My process
 
-### Technologies Used
+### ⚙️Technologies Used
 
 - SASS/SCSS for efficient styling
 - BEM (Block Element Modifier) Architecture for structured CSS
@@ -57,7 +57,7 @@ This is a solution to the [Pomodoro app challenge on Frontend Mentor](https://ww
 - Webpack for module bundling and optimization
 - HTML Semantic Tags for structured and meaningful markup
 
-### What I learned
+### 🧠What I learned
 
 Oh boy! Where do I begin? This Frontend Mentor Challenge has provided me with the densest and most valuable knowledge I've acquired so far.
 
