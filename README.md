@@ -1,4 +1,4 @@
-# FEM Pomodoro App
+# ⏳FEM Pomodoro App
 
 Elevate productivity with this Pomodoro-inspired timer, perfect for focused work. Seamlessly switch between work and breaks, utilizing short and long break features. Optimize your workflow, achieve balance, and effortlessly boost productivity.
 
