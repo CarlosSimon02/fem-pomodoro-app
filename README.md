@@ -67,28 +67,17 @@ This realization inspired me to step out of my comfort zone and delve into more 
 
 Here's a summary of the things I've learned throughout this process.
 
-
-1. **Open Graph (OG):** Understanding how OG tags control the display of content on social media platforms.
-  
-2. **Accessibility:** Ensuring your app is usable by all, considering diverse needs and disabilities.
-  
-3. **Search Engine Optimization (SEO):** Optimizing your app to rank better in search engine results.
-  
-4. **BEM (Block Element Modifier) Architecture:** Structuring CSS for better readability and scalability.
-  
-5. **MVC (Model View Controller) Architecture:** Organizing code into models, views, and controllers for better code organization.
-  
-6. **Progressive Web App (PWA):** Building web apps that offer native app-like experiences and functionalities.
-  
-7. **ES12 Classes:** Utilizing the class syntax introduced in ECMAScript 12 (ES2022). Especially private properties.
-  
-8. **Closure:** Getting the hang of closures in JavaScript for encapsulation was a huge moment. Funny enough, I'd heard about this concept ages ago, but diving in made me truly get it. You know what they say: experience really is the best teacher.
-  
-9. **Local Storage:** Storing data within the user's browser for data management.
-  
-10. **Node Package Manager (NPM):** Coding with just HTML, CSS, and vanilla JavaScript? It's like digging a hole with bare hands, so much effort! But finding out about this whole NPM thing? Total game-changer! Even though I'm only scratching the surface with bundling JS modules, I know diving deep into NPM will seriously level up my game and make life way easier.
-
-11. **Profiling:**
+1. **Open Graph (OG)**
+2. **Accessibility**
+3. **Search Engine Optimization (SEO)**
+4. **BEM (Block Element Modifier) Architecture**
+5. **MVC (Model View Controller) Architecture** 
+6. **Progressive Web App (PWA)** 
+7. **ES12 Classes**
+8. **Closure** 
+9. **Local Storage** 
+10. **Node Package Manager (NPM)** 
+11. **Profiling**
 12. **Destructuring Assignment**
 13. **Modules**
 14. **Input Validation**
